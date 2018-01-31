@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  category: MyString
+  unit: 1
+  unit_type: MyString
+  frequency: MyString
+  posted_date: 2018-01-31
+  fulfill_by_date: 2018-01-31
+  fulfilled: false
+  charity_id: 1
+
+two:
+  title: MyString
+  description: MyString
+  category: MyString
+  unit: 1
+  unit_type: MyString
+  frequency: MyString
+  posted_date: 2018-01-31
+  fulfill_by_date: 2018-01-31
+  fulfilled: false
+  charity_id: 1
