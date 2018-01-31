@@ -20,13 +20,13 @@ ActiveRecord::Schema.define(version: 20180131184824) do
     t.string "description"
     t.string "category"
     t.integer "units"
-    t.string "unit_type"
+    t.string "unit_category"
     t.string "location"
     t.date "posted_date"
     t.date "fulfill_by_date"
     t.boolean "fulfilled", default: false
     t.integer "user_id"
-    t.integer "charity_id"
+    t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180131184824) do
     t.string "name"
     t.string "sector"
     t.string "description"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,13 +54,13 @@ ActiveRecord::Schema.define(version: 20180131184824) do
     t.string "description"
     t.string "category"
     t.integer "units"
-    t.string "unit_type"
+    t.string "unit_category"
     t.string "location"
     t.date "available_date"
     t.date "claim_by_date"
     t.boolean "claimed", default: false
     t.integer "user_id"
-    t.integer "corporation_id"
+    t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,8 +81,7 @@ ActiveRecord::Schema.define(version: 20180131184824) do
     t.string "email"
     t.string "phone"
     t.string "password_digest"
-    t.integer "charity_id"
-    t.integer "corporation_id"
+    t.integer "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

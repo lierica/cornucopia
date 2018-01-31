@@ -1,4 +1,5 @@
 class Organization < ApplicationRecord
-	has_many :users, :foreign_key => 'charity_id'
-	has_many :users, :foreign_key => 'corporation_id'
+	has_many :users
+	has_many :needs
+	has_many :surpluses
 end
