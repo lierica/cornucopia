@@ -1,14 +1,12 @@
-import React, { Component } from "react"
-import Signup from "./signup"
+import React from "react"
 
-class Body extends Component {
-  render() {
-    return (
-      <div className="body">
-        <h1>body</h1>
-        <button onClick={this.props.handleSignup()}>Get Started</button>
-      </div>
-    )
-  }
+const Body = (props) => {
+  return (
+    <div className="body">
+      <h1>body</h1>
+      <button onClick={() => props.handleSignup()}>Get Started</button>
+    </div>
+  )
 }
+
 export default Body

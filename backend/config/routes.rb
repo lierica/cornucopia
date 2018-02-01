@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :surpluses
 			resources :needs
 			resources :users
+      resources :organizations, only: [:index]
     end
   end
 end

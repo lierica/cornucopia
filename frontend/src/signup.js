@@ -1,11 +1,11 @@
-import React, { Component } from "react"
+import React from "react"
 import Header from "./header"
 
 const Signup = () => {
   return (
     <div>
       <Header />
-      <h1>Get Started</h1>
+      <h1>Sign Up</h1>
       <form>
         <input type="text" placeholder="First Name" />
         <input type="text" placeholder="Last Name" />
