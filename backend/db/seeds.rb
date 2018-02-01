@@ -1,11 +1,3 @@
-UserSurplus.destroy_all
-SurplusNeed.destroy_all
-Organization.destroy_all
-User.destroy_all
-Need.destroy_all
-Surplus.destroy_all
-
-
 google = Organization.create(name: "Google", sector: "technology", description: "Google is a technology company that specializes in Internet-related services and products, which include online advertising technologies, search engine, cloud computing, software, and hardware.", category: "corporation")
 
 unilever = Organization.create(name: "Unilever", sector: "consumer goods", description: "Unilever is a consumer goods company that is a leading producer of cleaning agents and personal care products.", category: "corporation")
@@ -24,7 +16,7 @@ bowerymission = Organization.create(name: "Bowery Mission", sector: "community c
 
 pencilsofpromise = Organization.create(name: "Pencils of Promise", sector: "education", description: "Pencils of Promise is a for-purpose organization that builds schools, trains teachers, and funds scholarships.", category: "charity")
 
-savethechildren = Organization.create(name: "Save the Children Fund", sector: "children", description: "The Save the Children Fund is an international organization that promotes children's rights, provides relief, and helps support children in developing countries.")
+savethechildren = Organization.create(name: "Save the Children Fund", sector: "children", description: "The Save the Children Fund is an international organization that promotes children's rights, provides relief, and helps support children in developing countries.", category:"charity")
 
 #Users
 
@@ -72,8 +64,8 @@ need3 = Need.create(title: "New computers for our classrooms", description: "The
 
 surplusneed1 = SurplusNeed.create(surplus_id: surplus3.id, need_id: need1.id)
 
-#usersurplus
+#usersurplusneed
 
-usersurplus1 = UserSurplus.create(user_id: andrew.id, surplus_id: surplus2.id)
+usersurplusneed1 = UserSurplusNeed.create(user_id: andrew.id, surplus_id: surplus2.id, need_id: need1.id)
 
-usersurplus2 = UserSurplus.create(user_id: seth.id, surplus_id: surplus2.id)
+usersurplusneed2 = UserSurplusNeed.create(user_id: seth.id, surplus_id: surplus2.id, need_id: need2.id)

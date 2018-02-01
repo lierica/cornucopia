@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20180131184824) do
     t.integer "units"
     t.string "unit_category"
     t.string "location"
-    t.date "posted_date"
     t.date "fulfill_by_date"
     t.boolean "fulfilled", default: false
     t.integer "user_id"
@@ -36,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180131184824) do
     t.string "sector"
     t.string "description"
     t.string "category"
+    t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,13 +65,15 @@ ActiveRecord::Schema.define(version: 20180131184824) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_surpluses", force: :cascade do |t|
+  create_table "user_surplus_needs", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "surplus_id"
+    t.bigint "need_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["surplus_id"], name: "index_user_surpluses_on_surplus_id"
-    t.index ["user_id"], name: "index_user_surpluses_on_user_id"
+    t.index ["need_id"], name: "index_user_surplus_needs_on_need_id"
+    t.index ["surplus_id"], name: "index_user_surplus_needs_on_surplus_id"
+    t.index ["user_id"], name: "index_user_surplus_needs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180131184824) do
     t.string "role"
     t.string "email"
     t.string "phone"
+    t.string "photo"
     t.string "password_digest"
     t.integer "organization_id"
     t.datetime "created_at", null: false
@@ -88,6 +91,7 @@ ActiveRecord::Schema.define(version: 20180131184824) do
 
   add_foreign_key "surplus_needs", "needs"
   add_foreign_key "surplus_needs", "surpluses"
-  add_foreign_key "user_surpluses", "surpluses"
-  add_foreign_key "user_surpluses", "users"
+  add_foreign_key "user_surplus_needs", "needs"
+  add_foreign_key "user_surplus_needs", "surpluses"
+  add_foreign_key "user_surplus_needs", "users"
 end

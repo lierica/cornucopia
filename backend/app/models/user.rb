@@ -3,9 +3,10 @@ class User < ApplicationRecord
 
 	belongs_to :organization
 
-	has_many :user_surpluses
-	has_many :liked_surpluses, through: :user_surpluses
-	
+	has_many :user_surplus_needs
+	has_many :liked_surpluses, through: :user_surplus_needs
+	has_many :pitched_needs, through: :user_surplus_needs
+
 	has_many :surpluses
 	has_many :needs
 

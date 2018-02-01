@@ -5,6 +5,8 @@ class CreateOrganizations < ActiveRecord::Migration[5.1]
       t.string :sector
       t.string :description
       t.string :category
+      t.string :logo
+      
 
       t.timestamps
     end
