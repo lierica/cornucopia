@@ -6,7 +6,11 @@ class Api::V1::UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(user_params)
+		@user = User.new(first_name: user_params["first_name"], last_name: user_params["last_name"], role: user_params["role"], email: user_params["email"], phone: user_params["phone"], password: user_params["password"])
+		@organization = Organization.find_or_create_by(name: user_params["organization"])
+		@organization.category = user_params["organization_category"]
+		@user.organization_id = @organization.id
+		@user.save
 		render json: @user, status: 200
 	end
 
@@ -23,8 +27,8 @@ class Api::V1::UsersController < ApplicationController
 
   private
 
-  def surplus_params
-    params.require(:user).permit(:first_name, :last_name, :role, :email, :phone, :password_digest)
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :role, :email, :phone, :password, :organization, :organization_category)
   end
 
 end
