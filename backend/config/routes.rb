@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 			resources :needs
 			resources :users
       resources :organizations, only: [:index]
+      post '/auth', to: 'authentication#create'
     end
   end
 end

@@ -6,9 +6,9 @@ class Api::V1::UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(first_name: user_params["first_name"], last_name: user_params["last_name"], role: user_params["role"], email: user_params["email"], phone: user_params["phone"], password: user_params["password"])
-		@organization = Organization.find_or_create_by(name: user_params["organization"])
-		@organization.category = user_params["organization_category"]
+		@user = User.new(first_name: user_params[:first_name], last_name: user_params[:last_name], role: user_params[:role], email: user_params[:email], phone: user_params[:phone], password: user_params[:password])
+		@organization = Organization.find_or_create_by(name: user_params[:organization])
+		@organization.category = user_params[:organization_category]
 		@user.organization_id = @organization.id
 		@user.save
 		render json: @user, status: 200

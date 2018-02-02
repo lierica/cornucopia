@@ -28,7 +28,6 @@ class Signup extends Component {
   }
 
   render() {
-    console.log(this.props)
     const {
       first_name,
       last_name,
