@@ -1,12 +1,17 @@
 import React from "react"
+import { withRouter } from "react-router-dom"
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const handleLogin = () => {
+    props.history.push("/login")
+  }
+
   return (
     <div className="header">
       <h1>CORNUCOPIA</h1>
-      <button>Log In</button>
+      <button onClick={() => handleLogin()}>Log In</button>
     </div>
   )
 }
 
-export default NavBar
+export default withRouter(NavBar)

@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import store from "./store"
 import App from "./App"
 import Signup from "./signup"
+import Login from "./login"
 
 ReactDOM.render(
   <Provider store={store}>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <div>
         <Route exact path="/" component={App} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
       </div>
     </Router>
   </Provider>,

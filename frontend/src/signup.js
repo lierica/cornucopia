@@ -24,7 +24,7 @@ class Signup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.createUser(this.props.userFormData)
+    this.props.createUser(this.props.userFormData, this.props.history)
   }
 
   render() {
