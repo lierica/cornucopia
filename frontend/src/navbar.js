@@ -1,6 +1,6 @@
 import React from "react"
 
-const Header = () => {
+const NavBar = () => {
   return (
     <div className="header">
       <h1>CORNUCOPIA</h1>
@@ -9,4 +9,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default NavBar

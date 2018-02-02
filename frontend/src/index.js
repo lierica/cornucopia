@@ -9,7 +9,6 @@ import Signup from "./signup"
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      ra
       <div>
         <Route exact path="/" component={App} />
         <Route exact path="/signup" component={Signup} />
