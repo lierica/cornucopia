@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import NavBar from "./navbar"
 import { getOrganizations } from "./actions/organizations"
-import { createUser } from "./actions/user"
+import { createUser } from "./actions/currentUser"
 import { updateUserFormData } from "./actions/userFormData"
 import { connect } from "react-redux"
 

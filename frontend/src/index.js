@@ -6,6 +6,7 @@ import store from "./store"
 import App from "./App"
 import Signup from "./signup"
 import Login from "./login"
+import Dashboard from "./dashboard"
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,6 +15,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/login" component={Dashboard} />
       </div>
     </Router>
   </Provider>,

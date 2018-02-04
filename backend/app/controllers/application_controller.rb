@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::API
 
-	class ApplicationController < ActionController::API
-
   def current_user
     @user ||= User.find_by(id: user_id)
   end
@@ -12,11 +10,10 @@ class ApplicationController < ActionController::API
 
   def decoded_token
     begin
-       JWT.decode(request.headers['Authorization'], ENV['secret_key'])
+       JWT.decode(request.headers['Authorization'], 'secret')
      rescue JWT::DecodeError
       [{}]
      end
   end
-end
 
 end

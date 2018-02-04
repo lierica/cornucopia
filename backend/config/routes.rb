@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 			resources :users
       resources :organizations, only: [:index]
       post '/auth', to: 'authentication#create'
+      get '/current_user', to: 'authentication#show'
     end
   end
 end

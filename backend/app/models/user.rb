@@ -10,4 +10,10 @@ class User < ApplicationRecord
 	has_many :surpluses
 	has_many :needs
 
+	validates :first_name, :last_name, :role, :email, :phone, :password_digest, presence: true
+
+	validates :email, uniqueness: true
+
+	validates :phone, length: {is: 10}
+
 end

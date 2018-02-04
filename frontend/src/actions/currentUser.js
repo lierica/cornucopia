@@ -1,3 +1,5 @@
+import { adapter } from "../services"
+
 const API_URL = "http://localhost:3000/api/v1/"
 const HEADERS = {
   "Content-Type": "application/json",
@@ -23,7 +25,7 @@ export const createUser = (userFormData, history) => {
   }
 }
 
-export const authenticateUser = (loginFormData, history) => {
+export const loginUser = (loginFormData, history) => {
   return (dispatch) => {
     return fetch(`${API_URL}/auth`, {
       method: "POST",
@@ -31,13 +33,27 @@ export const authenticateUser = (loginFormData, history) => {
       body: JSON.stringify({ loginFormData })
     })
       .then((response) => response.json())
-      .then.then((user) => {
+      .then((user) => {
         if (user.error) {
           alert(user.error)
         } else {
+          localStorage.setItem("token", user.jwt)
+          dispatch({ type: "SET_CURRENT_USER", user })
           history.push("/dashboard")
         }
       })
       .catch((error) => alert(error))
   }
+}
+
+export const fetchUser = () => (dispatch) => {
+  dispatch({ type: "ASYNC_START" })
+  adapter.auth.getCurrentUser().then((user) => {
+    dispatch({ type: "FETCH_USER_INFO", user })
+  })
+}
+
+export const logoutUser = () => {
+  localStorage.removeItem("token")
+  return { type: "LOGOUT_USER" }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import NavBar from "./navbar"
-import { authenticateUser } from "./actions/user"
+import { loginUser } from "./actions/currentUser"
 import { updateLoginFormData } from "./actions/loginFormData"
 import { connect } from "react-redux"
 
@@ -19,7 +19,7 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.authenticateUser(this.props.loginFormData, this.props.history)
+    this.props.loginUser(this.props.loginFormData, this.props.history)
   }
   render() {
     const { email, password } = this.props.loginFormData
@@ -56,6 +56,6 @@ const mapStateToProps = (state) => {
   }
 }
 export default connect(mapStateToProps, {
-  authenticateUser,
+  loginUser,
   updateLoginFormData
 })(Login)

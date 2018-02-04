@@ -1,12 +1,12 @@
 class Api::V1::AuthenticationController < ApplicationController
 
 	  def create
-	    user = User.find_by(emailo: login_params[:email])
+	    user = User.find_by(email: login_params[:email])
 	    if user && user.authenticate(login_params[:password])
 	      render json: {
 	        id: user.id,
-	        username: user.email,
-	        jwt: JWT.encode({user_id: user.id}, ENV['secret_key'], 'HS256')
+	        email: user.email,
+	        jwt: JWT.encode({user_id: user.id}, 'secret', 'HS256')
 	      }
 	    else
 	      render json: {error: 'User not found'}, status: 404
@@ -15,10 +15,7 @@ class Api::V1::AuthenticationController < ApplicationController
 
 	  def show
 	    if current_user
-	      render json: {
-	        id: current_user.id,
-	        username: current_user.username
-	      }
+	      render json: current_user
 	    else
 	      render json: {error: 'No id present on headers'}, status: 404
 	    end
