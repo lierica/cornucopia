@@ -18,6 +18,8 @@ export const createUser = (userFormData, history) => {
         if (user.error) {
           alert(user.error)
         } else {
+          localStorage.setItem("token", user.jwt)
+          dispatch({ type: "SET_NEW_USER", user })
           history.push("/dashboard")
         }
       })
