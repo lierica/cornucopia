@@ -5,6 +5,7 @@ import "./style/App.css"
 
 class App extends Component {
   render() {
+    console.log("in app render")
     return (
       <div className="wrapper">
         <NavBar />

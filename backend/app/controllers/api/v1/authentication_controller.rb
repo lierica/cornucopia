@@ -4,7 +4,7 @@ class Api::V1::AuthenticationController < ApplicationController
 	    @user = User.find_by(email: login_params[:email])
 	    if @user && @user.authenticate(login_params[:password])
 	      render json: {
-	        user: @user,
+	        user: UserSerializer.new(@user),
 	        jwt: JWT.encode({user_id: @user.id}, 'secret', 'HS256')
 	      }
 	    else

@@ -8,8 +8,6 @@ const withAuth = (WrappedComponent) => {
     state = {
       authCompleted: this.props.loggedIn
     }
-
-    debugger
     componentDidMount() {
       if (localStorage.getItem("token")) {
         this.props.fetchUser()
@@ -37,11 +35,12 @@ const withAuth = (WrappedComponent) => {
     }
   }
 
-  const mapStateToProps = (state) => ({
-    loggedIn: !!state.auth.currentUser.id
-  })
-
-  return connect(mapStateToProps, fetchUser)(AuthedComponent)
+  const mapStateToProps = (state) => {
+    return {
+      loggedIn: !!state.currentUser.profile.id
+    }
+  }
+  return connect(mapStateToProps, { fetchUser: fetchUser })(AuthedComponent)
 }
 
 export default withAuth

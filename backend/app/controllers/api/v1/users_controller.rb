@@ -11,7 +11,8 @@ class Api::V1::UsersController < ApplicationController
 		@organization.category = user_params[:organization_category]
 		@user.organization_id = @organization.id
 		@user.save
-		render json: @user, status: 200
+		token = issue_token(@user)
+		render json: {user: UserSerializer.new(@user), jwt: token}, status: 200
 	end
 
   def update

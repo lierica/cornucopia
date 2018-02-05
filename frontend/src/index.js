@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { Switch, BrowserRouter as Router, Route } from "react-router-dom"
 import { Provider } from "react-redux"
 import store from "./store"
 import App from "./App"
@@ -11,12 +11,12 @@ import Dashboard from "./dashboard"
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <div>
+      <Switch>
         <Route exact path="/" component={App} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/login" component={Dashboard} />
-      </div>
+        <Route exact path="/dashboard" component={Dashboard} />
+      </Switch>
     </Router>
   </Provider>,
   document.getElementById("root")

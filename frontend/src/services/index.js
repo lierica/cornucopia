@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/api/v1"
+const API_URL = "http://localhost:3000/api/v1"
 const HEADERS = {
   "Content-Type": "application/json",
   Accepts: "application/json"
@@ -7,7 +7,11 @@ const HEADERS = {
 const getWithToken = (url) => {
   const token = localStorage.getItem("token")
   return fetch(url, {
-    headers: { Authorization: token }
+    headers: {
+      "Content-Type": "application/json",
+      Accepts: "application/json",
+      Authorization: token
+    }
   }).then((res) => res.json())
 }
 
