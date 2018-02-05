@@ -23,9 +23,9 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("dashboard state", state)
+  console.log("dashboard state", state.currentUser.profile)
   return {
-    currentUser: state.currentUser
+    user: state.currentUser.profile
   }
 }
 export default withAuth(connect(mapStateToProps, null)(Dashboard))

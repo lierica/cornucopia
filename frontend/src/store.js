@@ -3,13 +3,12 @@ import thunk from "redux-thunk"
 import surpluses from "./reducers/surpluses"
 import needs from "./reducers/needs"
 import organizations from "./reducers/organizations"
-import { auth, currentUser } from "./reducers/currentUser"
+import currentUser from "./reducers/currentUser"
 import userFormData from "./reducers/userFormData"
 import loginFormData from "./reducers/loginFormData"
 
 const reducers = combineReducers({
   currentUser,
-  auth,
   userFormData,
   loginFormData,
   organizations,

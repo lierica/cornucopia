@@ -1,5 +1,6 @@
 import React from "react"
 import { withRouter } from "react-router-dom"
+import { connect } from "react-redux"
 
 const Body = (props) => {
   const handleSignup = () => {
@@ -9,9 +10,17 @@ const Body = (props) => {
   return (
     <div className="body">
       <h1>body</h1>
-      <button onClick={() => handleSignup()}>Get Started</button>
+      {props.loggedIn ? null : (
+        <button onClick={() => handleSignup()}>Get Started</button>
+      )}
     </div>
   )
 }
 
-export default withRouter(Body)
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.currentUser.loggedIn
+  }
+}
+
+export default withRouter(connect(mapStateToProps, null)(Body))
