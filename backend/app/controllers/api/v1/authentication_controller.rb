@@ -1,12 +1,11 @@
 class Api::V1::AuthenticationController < ApplicationController
 
 	  def create
-	    user = User.find_by(email: login_params[:email])
-	    if user && user.authenticate(login_params[:password])
+	    @user = User.find_by(email: login_params[:email])
+	    if @user && @user.authenticate(login_params[:password])
 	      render json: {
-	        id: user.id,
-	        email: user.email,
-	        jwt: JWT.encode({user_id: user.id}, 'secret', 'HS256')
+	        user: @user,
+	        jwt: JWT.encode({user_id: @user.id}, 'secret', 'HS256')
 	      }
 	    else
 	      render json: {error: 'User not found'}, status: 404

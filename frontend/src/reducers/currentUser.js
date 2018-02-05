@@ -1,10 +1,11 @@
 const defaultState = { profile: {}, loading: false }
 const initialState = { currentUser: {} }
 
-const auth = (state = initialState, action) => {
+export const auth = (state = initialState, action) => {
+  console.log("setting current user", action)
+
   switch (action.type) {
     case "SET_CURRENT_USER":
-      console.log("setting current user", action)
       const { id, email } = action.user
       return { ...state, currentUser: { id, email } }
     case "LOGOUT_USER":
@@ -16,7 +17,7 @@ const auth = (state = initialState, action) => {
   }
 }
 
-const currentUser = (state = defaultState, action) => {
+export const currentUser = (state = defaultState, action) => {
   switch (action.type) {
     case "ASYNC_START":
       return { ...state, profile: {}, loading: true }

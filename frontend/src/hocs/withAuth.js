@@ -37,11 +37,11 @@ const withAuth = (WrappedComponent) => {
     }
   }
 
-  // const mapStateToProps = (state) => ({
-  //   loggedIn: !!state.auth.currentUser.id
-  // })
-  //
-  // return connect(mapStateToProps, fetchUser)(AuthedComponent)
+  const mapStateToProps = (state) => ({
+    loggedIn: !!state.auth.currentUser.id
+  })
+
+  return connect(mapStateToProps, fetchUser)(AuthedComponent)
 }
 
 export default withAuth
