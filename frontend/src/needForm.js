@@ -1,5 +1,6 @@
 import React from "react"
 import { updateNeedFormData } from "./actions/needFormData"
+import { toggleNeedFormRender } from "./actions/needFormRender"
 import { createNeed } from "./actions/currentUser"
 import { connect } from "react-redux"
 
@@ -17,8 +18,10 @@ const NeedForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.createNeed(props.needFormData)
+    props.toggleNeedFormRender()
   }
 
+  console.log(props)
   const {
     title,
     description,
@@ -104,10 +107,7 @@ const NeedForm = (props) => {
     </div>
   )
 }
-
 const mapStateToProps = (state) => {
-  console.log(state)
-
   return {
     needFormData: state.needFormData,
     user: state.currentUser.profile
@@ -116,5 +116,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   updateNeedFormData,
-  createNeed
+  createNeed,
+  toggleNeedFormRender
 })(NeedForm)

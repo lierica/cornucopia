@@ -1,8 +1,13 @@
 import React from "react"
+import { connect } from "react-redux"
 import NeedForm from "./needForm"
 import "./style/Dashboard.css"
+import { toggleNeedFormRender } from "./actions/needFormRender"
 
-const NeedContainer = () => {
+const NeedContainer = (props) => {
+  const handleClick = () => {
+    props.toggleSurplusFormRender()
+  }
   return (
     <div className="loggedin-wrapper">
       <div>
@@ -11,13 +16,23 @@ const NeedContainer = () => {
         <p>Search Bar</p>
 
         <p>Filter</p>
-        <button>Create Need</button>
-        <NeedForm />
+        {props.userCategory === "charity" && props.formRender === false ? (
+          <button onClick={() => handleClick()}>Create Need</button>
+        ) : null}
+        {props.userCategory === "charity" && props.formRender === true ? (
+          <NeedForm />
+        ) : null}
 
         <p>Need list</p>
       </div>
     </div>
   )
 }
+const mapStateToProps = (state) => {
+  return {
+    userCategory: state.currentUser.profile.organization.category,
+    formRender: state.surplusFormRender
+  }
+}
 
-export default NeedContainer
+export default connect(mapStateToProps, { toggleNeedFormRender })(NeedContainer)

@@ -1,6 +1,7 @@
 import React from "react"
 import { updateSurplusFormData } from "./actions/surplusFormData"
 import { createSurplus } from "./actions/currentUser"
+import { toggleSurplusFormRender } from "./actions/surplusFormRender"
 import { connect } from "react-redux"
 
 const SurplusForm = (props) => {
@@ -17,6 +18,7 @@ const SurplusForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.createSurplus(props.surplusFormData)
+    props.toggleSurplusFormRender()
   }
 
   const {
@@ -113,8 +115,6 @@ const SurplusForm = (props) => {
   )
 }
 const mapStateToProps = (state) => {
-  console.log(state)
-
   return {
     surplusFormData: state.surplusFormData,
     user: state.currentUser.profile
@@ -123,5 +123,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   updateSurplusFormData,
-  createSurplus
+  createSurplus,
+  toggleSurplusFormRender
 })(SurplusForm)
