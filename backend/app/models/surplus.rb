@@ -10,7 +10,7 @@ class Surplus < ApplicationRecord
 	has_many :likers, :class_name => 'User', through: :user_surplus_needs
 	has_many :pitched_needs, :class_name => 'Need', through: :user_surplus_needs
 
-	validates :title, :description, :category, :units, :unit_category, :location, :available_date, :claim_by_date, :claimed, :user_id, :organization_id, presence: true
+	validates :title, :description, :category, :units, :unit_category, :location, :available_date, :claim_by_date, :user_id, :organization_id, presence: true
 
 	validates :units, numericality: true
 

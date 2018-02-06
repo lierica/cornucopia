@@ -14,6 +14,11 @@ export default (state = initialState, action) => {
       return { ...state, profile: {}, loggedIn: false }
     case "LOGIN_ERROR":
       return { ...state, profile: {}, loggedIn: false }
+    case "ADD_SURPLUS":
+      return {
+        ...state,
+        surpluses: state.profile.surpluses.concat(action.surplus)
+      }
     default:
       return state
   }

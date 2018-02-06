@@ -59,3 +59,22 @@ export const logoutUser = () => {
   localStorage.removeItem("token")
   return { type: "LOGOUT_USER" }
 }
+
+export const createSurplus = (surplusFormData) => {
+  return (dispatch) => {
+    return fetch(`${API_URL}/surpluses`, {
+      method: "POST",
+      headers: HEADERS,
+      body: JSON.stringify({ surplus: surplusFormData })
+    })
+      .then((response) => response.json())
+      .then((surplus) => {
+        if (surplus.error) {
+          alert(surplus.error)
+        } else {
+          dispatch({ type: "ADD_SURPLUS", surplus })
+        }
+      })
+      .catch((error) => alert(error))
+  }
+}

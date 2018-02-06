@@ -6,10 +6,6 @@ import { updateUserFormData } from "./actions/userFormData"
 import { connect } from "react-redux"
 
 class Signup extends Component {
-  constructor(props) {
-    super()
-  }
-
   componentDidMount() {
     this.props.getOrganizations()
   }

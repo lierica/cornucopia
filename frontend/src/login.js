@@ -5,10 +5,6 @@ import { updateLoginFormData } from "./actions/loginFormData"
 import { connect } from "react-redux"
 
 class Login extends Component {
-  constructor(props) {
-    super()
-  }
-
   handleOnChange = (e) => {
     const { name, value } = e.target
     const loginFormData = Object.assign({}, this.props.loginFormData, {
@@ -55,6 +51,7 @@ const mapStateToProps = (state) => {
     loginFormData: state.loginFormData
   }
 }
+
 export default connect(mapStateToProps, {
   loginUser,
   updateLoginFormData
