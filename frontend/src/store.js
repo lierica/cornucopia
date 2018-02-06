@@ -6,6 +6,7 @@ import userFormData from "./reducers/userFormData"
 import loginFormData from "./reducers/loginFormData"
 import loginView from "./reducers/loginView"
 import surplusFormData from "./reducers/surplusFormData"
+import needFormData from "./reducers/needFormData"
 
 const reducers = combineReducers({
   currentUser,
@@ -13,7 +14,8 @@ const reducers = combineReducers({
   loginView,
   userFormData,
   loginFormData,
-  surplusFormData
+  surplusFormData,
+  needFormData
 })
 
 export default createStore(reducers, applyMiddleware(thunk))

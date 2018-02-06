@@ -78,3 +78,22 @@ export const createSurplus = (surplusFormData) => {
       .catch((error) => alert(error))
   }
 }
+
+export const createNeed = (needFormData) => {
+  return (dispatch) => {
+    return fetch(`${API_URL}/needs`, {
+      method: "POST",
+      headers: HEADERS,
+      body: JSON.stringify({ need: needFormData })
+    })
+      .then((response) => response.json())
+      .then((need) => {
+        if (need.error) {
+          alert(need.error)
+        } else {
+          dispatch({ type: "ADD_NEED", need })
+        }
+      })
+      .catch((error) => alert(error))
+  }
+}

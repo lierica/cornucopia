@@ -19,6 +19,11 @@ export default (state = initialState, action) => {
         ...state,
         surpluses: state.profile.surpluses.concat(action.surplus)
       }
+    case "ADD_NEED":
+      return {
+        ...state,
+        needs: state.profile.needs.concat(action.need)
+      }
     default:
       return state
   }

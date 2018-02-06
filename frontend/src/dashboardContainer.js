@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import NavBar from "./navbar"
 import SideBar from "./sidebar"
-import Needs from "./needs"
+import NeedContainer from "./needContainer"
 import SurplusContainer from "./surplusContainer"
 import History from "./history"
 import DashboardContent from "./dashboardContent"
@@ -15,7 +15,7 @@ class Dashboard extends Component {
     let view = null
 
     if (viewState === "Needs") {
-      view = <Needs />
+      view = <NeedContainer />
     } else if (viewState === "Surpluses") {
       view = <SurplusContainer />
     } else if (viewState === "History") {
