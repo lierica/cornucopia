@@ -12,10 +12,6 @@ const NeedContainer = (props) => {
     <div className="loggedin-wrapper">
       <div>
         <h1>Needs</h1>
-
-        <p>Search Bar</p>
-
-        <p>Filter</p>
         {props.userCategory === "charity" && props.formRender === false ? (
           <button onClick={() => handleClick()}>Create Need</button>
         ) : null}
@@ -23,7 +19,13 @@ const NeedContainer = (props) => {
           <NeedForm />
         ) : null}
 
-        <p>Need list</p>
+        {props.formRender === false ? (
+          <div>
+            <p>Search Bar</p>
+            <p>Filter</p>
+            <p>Need list</p>
+          </div>
+        ) : null}
       </div>
     </div>
   )
@@ -31,7 +33,7 @@ const NeedContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     userCategory: state.currentUser.profile.organization.category,
-    formRender: state.surplusFormRender
+    formRender: state.needFormRender
   }
 }
 

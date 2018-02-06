@@ -19,11 +19,13 @@ const SurplusContainer = (props) => {
           <SurplusForm />
         ) : null}
 
-        <p>Search Bar</p>
-
-        <p>Filter</p>
-
-        <p>Surplus list</p>
+        {props.formRender === false ? (
+          <div>
+            <p>Search Bar</p>
+            <p>Filter</p>
+            <p>Surplus list</p>
+          </div>
+        ) : null}
       </div>
     </div>
   )
