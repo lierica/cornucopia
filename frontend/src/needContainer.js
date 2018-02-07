@@ -22,7 +22,10 @@ const NeedContainer = (props) => {
         ) : null}
 
         {props.userCategory === "charity" && props.formRender === true ? (
-          <NeedForm />
+          <div>
+            <button onClick={() => handleClick()}>Cancel</button>
+            <NeedForm />
+          </div>
         ) : null}
 
         {props.userCategory === "charity" && props.formRender === false ? (
