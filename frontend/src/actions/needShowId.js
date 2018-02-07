@@ -1,6 +1,6 @@
-export const changeNeedShowID = (NeedShowId) => {
+export const changeNeedShowId = (needShowId) => {
   return {
-    type: "CHANGE_Need_SHOW_ID",
+    type: "CHANGE_NEED_SHOW_ID",
     needShowId
   }
 }

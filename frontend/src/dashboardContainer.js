@@ -6,6 +6,7 @@ import SurplusContainer from "./surplusContainer"
 import History from "./history"
 import DashboardContent from "./dashboardContent"
 import SurplusShow from "./surplusShow"
+import NeedShow from "./needShow"
 import { connect } from "react-redux"
 import withAuth from "./hocs/withAuth"
 import { getNeeds } from "./actions/needs"
@@ -32,6 +33,8 @@ class Dashboard extends Component {
       view = <History />
     } else if (viewState === "SurplusShow") {
       view = <SurplusShow />
+    } else if (viewState === "NeedShow") {
+      view = <NeedShow />
     } else {
       view = <DashboardContent />
     }

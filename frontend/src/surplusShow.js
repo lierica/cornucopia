@@ -12,7 +12,7 @@ const SurplusShow = (props) => {
       <button>Delete</button>
       <h3>{currentSurplus.description}</h3>
       <h3>{currentSurplus.category}</h3>
-      <h3>{`${currentSurplus.units}${currentSurplus.units_category}`}</h3>
+      <h3>{`${currentSurplus.units} ${currentSurplus.unit_category}`}</h3>
       <h3>{currentSurplus.location}</h3>
       <h3>{currentSurplus.available_date}</h3>
       <h3>{currentSurplus.claim_by_date}</h3>

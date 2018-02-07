@@ -12,7 +12,7 @@ import needFormData from "./reducers/needFormData"
 import surplusFormRender from "./reducers/surplusFormRender"
 import needFormRender from "./reducers/needFormRender"
 import surplusShowId from "./reducers/surplusShowId"
-import needShowId from "./reducers/surplusShowId"
+import needShowId from "./reducers/needShowId"
 
 const reducers = combineReducers({
   currentUser,

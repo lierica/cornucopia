@@ -56,7 +56,6 @@ const UserSurplus = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log("mapstate", state)
   return {
     userSurpluses: state.currentUser.profile.surpluses
   }

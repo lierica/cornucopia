@@ -1,9 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
+import { changeView } from "./actions/loginView"
+import { changeNeedShowId } from "./actions/needShowId"
 
 const UserNeed = (props) => {
-  const handleClick = () => {
-    console.log("userneed")
+  const handleClick = (e) => {
+    const needShowId = e.target.id
+    props.changeView("NeedShow")
+    props.changeNeedShowId(needShowId)
   }
 
   return (
@@ -35,7 +39,7 @@ const UserNeed = (props) => {
               <td>{need.location}</td>
               <td>{need.fulfill_by_date}</td>
               <td>
-                <button onClick={() => handleClick()} id={need.id}>
+                <button onClick={(e) => handleClick(e)} id={need.id}>
                   Edit
                 </button>
               </td>
@@ -53,9 +57,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(UserNeed)
-
-//
-// {props.userNeeds.map((need) => (
-//   <userNeedItem need={need} key={need.id} handleClick={handleClick} />
-// ))}
+export default connect(mapStateToProps, { changeView, changeNeedShowId })(
+  UserNeed
+)
