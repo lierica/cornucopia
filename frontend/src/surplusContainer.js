@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import "./style/Dashboard.css"
 import SurplusForm from "./surplusForm"
+import UserSurpluses from "./userSurpluses"
 import { toggleSurplusFormRender } from "./actions/surplusFormRender"
 
 const SurplusContainer = (props) => {
@@ -11,7 +12,11 @@ const SurplusContainer = (props) => {
   return (
     <div className="loggedin-wrapper">
       <div>
-        <h1>Surpluses</h1>
+        <h1>
+          {props.userCategory === "corporation"
+            ? "Your Surpluses"
+            : "Explore Surpluses"}
+        </h1>
         {props.userCategory === "corporation" && props.formRender === false ? (
           <button onClick={() => handleClick()}>Create Surplus</button>
         ) : null}
@@ -19,11 +24,17 @@ const SurplusContainer = (props) => {
           <SurplusForm />
         ) : null}
 
-        {props.formRender === false ? (
+        {props.userCategory === "corporation" && props.formRender === false ? (
           <div>
-            <p>Search Bar</p>
             <p>Filter</p>
-            <p>Surplus list</p>
+            <UserSurpluses />
+          </div>
+        ) : null}
+
+        {props.userCategory === "charity" && props.formRender === false ? (
+          <div>
+            <p>search bar</p>
+            <p>all surpluses</p>
           </div>
         ) : null}
       </div>
@@ -32,7 +43,6 @@ const SurplusContainer = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     userCategory: state.currentUser.profile.organization.category,
     formRender: state.surplusFormRender

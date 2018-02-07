@@ -92,6 +92,7 @@ class Signup extends Component {
             value={organization_category}
             onChange={this.handleOnChange}
           >
+            <option value="">Select</option>
             <option value="charity">Charity</option>
             <option value="corporation">Corporation</option>
           </select>

@@ -11,7 +11,11 @@ const NeedContainer = (props) => {
   return (
     <div className="loggedin-wrapper">
       <div>
-        <h1>Needs</h1>
+        <h1>
+          {props.userCategory === "corporation"
+            ? "Explore Needs"
+            : "Your Needs"}
+        </h1>
         {props.userCategory === "charity" && props.formRender === false ? (
           <button onClick={() => handleClick()}>Create Need</button>
         ) : null}

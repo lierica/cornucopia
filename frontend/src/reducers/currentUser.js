@@ -5,8 +5,8 @@ export default (state = initialState, action) => {
     case "ASYNC_START":
       return { ...state, profile: {} }
     case "SET_NEW_USER":
-      console.log("SET CURRENT USER", action.user)
-      return { ...state, profile: action.user, loggedIn: true }
+      console.log("SET CURRENT USER", action.user.user)
+      return { ...state, profile: action.user.user, loggedIn: true }
     case "FETCH_USER_INFO":
       console.log("FETCHING USER", action.user)
       return { ...state, profile: action.user, loggedIn: true }

@@ -74,6 +74,7 @@ const NeedForm = (props) => {
           value={unit_category}
           onChange={(e) => handleOnChange(e)}
         >
+          <option value="">Select</option>
           <option value="piece">Piece</option>
           <option value="bag">Bag</option>
           <option value="box">Box</option>

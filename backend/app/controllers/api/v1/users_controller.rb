@@ -7,10 +7,14 @@ class Api::V1::UsersController < ApplicationController
 
 	def create
 		@user = User.new(first_name: user_params[:first_name], last_name: user_params[:last_name], role: user_params[:role], email: user_params[:email], phone: user_params[:phone], password: user_params[:password])
-		@organization = Organization.find_or_create_by(name: user_params[:organization])
-		@organization.category = user_params[:organization_category]
+
+		@organization = Organization.find_or_create_by({name: user_params[:organization]}) do |organization|
+			organization.category = user_params[:organization_category]
+		end
+
 		@user.organization_id = @organization.id
 		@user.save
+
 		token = issue_token(@user)
 		render json: {user: UserSerializer.new(@user), jwt: token}, status: 200
 	end

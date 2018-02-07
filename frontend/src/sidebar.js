@@ -13,10 +13,12 @@ const SideBar = (props) => {
         Dashboard
       </h3>
       <h3 id="Needs" onClick={(e) => handleClick(e)}>
-        Needs
+        {props.userCategory === "corporation" ? "Explore Needs" : "Your Needs"}
       </h3>
       <h3 id="Surpluses" onClick={(e) => handleClick(e)}>
-        Surpluses
+        {props.userCategory === "corporation"
+          ? "Your Surpluses"
+          : "Explore Surpluses"}
       </h3>
       <h3 id="History" onClick={(e) => handleClick(e)}>
         History
@@ -25,4 +27,11 @@ const SideBar = (props) => {
   )
 }
 
-export default connect(null, { changeView })(SideBar)
+const mapStateToProps = (state) => {
+  console.log("in sidebar state", state)
+  return {
+    userCategory: state.currentUser.profile.organization.category
+  }
+}
+
+export default connect(mapStateToProps, { changeView })(SideBar)
