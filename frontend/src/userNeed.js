@@ -1,9 +1,9 @@
-import React, { Component } from "react"
+import React from "react"
 import { connect } from "react-redux"
 
 const UserNeed = (props) => {
   const handleClick = () => {
-    console.log("hello")
+    console.log("userneed")
   }
 
   return (
@@ -27,7 +27,7 @@ const UserNeed = (props) => {
           </th>
         </tr>
 
-        {this.props.userNeeds.map((need) => {
+        {props.userNeeds.map((need) => {
           return (
             <tr key={need.id}>
               <td>{need.title}</td>

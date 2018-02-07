@@ -2,6 +2,10 @@ import React from "react"
 import { connect } from "react-redux"
 
 const UserSurplus = (props) => {
+  const handleClick = () => {
+    console.log("omg pls")
+  }
+
   return (
     <table>
       <tbody>
@@ -35,7 +39,9 @@ const UserSurplus = (props) => {
               <td>{surplus.available_date}</td>
               <td>{surplus.claim_by_date}</td>
               <td>
-                <button id={surplus.id}>Edit</button>
+                <button id={surplus.id} onClick={() => handleClick()}>
+                  Edit
+                </button>
               </td>
             </tr>
           )

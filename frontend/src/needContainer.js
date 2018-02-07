@@ -1,7 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 import NeedForm from "./needForm"
-import UserNeeds from "./userNeeds"
+import UserNeed from "./userNeed"
+import NeedIndex from "./needIndex"
 import "./style/Dashboard.css"
 import { toggleNeedFormRender } from "./actions/needFormRender"
 
@@ -31,14 +32,14 @@ const NeedContainer = (props) => {
         {props.userCategory === "charity" && props.formRender === false ? (
           <div>
             <p>Filter</p>
-            <UserNeeds />
+            <UserNeed />
           </div>
         ) : null}
 
         {props.userCategory === "corporation" && props.formRender === false ? (
           <div>
             <p>search bar</p>
-            <p>all surpluses</p>
+            <NeedIndex />
           </div>
         ) : null}
       </div>
