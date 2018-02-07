@@ -15,7 +15,7 @@ const SurplusContainer = (props) => {
       <div>
         <h1>
           {props.userCategory === "corporation"
-            ? "Your Surpluses"
+            ? props.formRender === false ? "Your Surpluses" : null
             : "Explore Surpluses"}
         </h1>
         {props.userCategory === "corporation" && props.formRender === false ? (

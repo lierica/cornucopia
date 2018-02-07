@@ -16,7 +16,7 @@ const NeedContainer = (props) => {
         <h1>
           {props.userCategory === "corporation"
             ? "Explore Needs"
-            : "Your Needs"}
+            : props.formRender === false ? "Your Needs" : null}
         </h1>
         {props.userCategory === "charity" && props.formRender === false ? (
           <button onClick={() => handleClick()}>Create Need</button>

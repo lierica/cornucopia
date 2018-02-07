@@ -24,6 +24,7 @@ const NeedShow = (props) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log("need show state", state)
   return {
     userCategory: state.currentUser.profile.organization.category,
     needs: state.needs,
