@@ -1,12 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
 import NeedForm from "./needForm"
+import UserNeeds from "./userNeeds"
 import "./style/Dashboard.css"
 import { toggleNeedFormRender } from "./actions/needFormRender"
 
 const NeedContainer = (props) => {
   const handleClick = () => {
-    props.toggleSurplusFormRender()
+    props.toggleNeedFormRender()
   }
   return (
     <div className="loggedin-wrapper">
@@ -19,15 +20,22 @@ const NeedContainer = (props) => {
         {props.userCategory === "charity" && props.formRender === false ? (
           <button onClick={() => handleClick()}>Create Need</button>
         ) : null}
+
         {props.userCategory === "charity" && props.formRender === true ? (
           <NeedForm />
         ) : null}
 
-        {props.formRender === false ? (
+        {props.userCategory === "charity" && props.formRender === false ? (
           <div>
-            <p>Search Bar</p>
             <p>Filter</p>
-            <p>Need list</p>
+            <UserNeeds />
+          </div>
+        ) : null}
+
+        {props.userCategory === "corporation" && props.formRender === false ? (
+          <div>
+            <p>search bar</p>
+            <p>all surpluses</p>
           </div>
         ) : null}
       </div>
