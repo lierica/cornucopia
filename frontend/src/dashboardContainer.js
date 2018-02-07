@@ -7,11 +7,20 @@ import History from "./history"
 import DashboardContent from "./dashboardContent"
 import { connect } from "react-redux"
 import withAuth from "./hocs/withAuth"
+import { getNeeds } from "./actions/needs"
+import { getSurpluses } from "./actions/surpluses"
+import { getOrganizations } from "./actions/organizations"
 import "./style/Dashboard.css"
 
 class Dashboard extends Component {
+  componentDidMount() {
+    this.props.getOrganizations()
+    this.props.getNeeds()
+    this.props.getSurpluses()
+  }
+
   render() {
-    const viewState = this.props.view.view
+    const viewState = this.props.view
     let view = null
 
     if (viewState === "Needs") {
@@ -41,4 +50,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default withAuth(connect(mapStateToProps, null)(Dashboard))
+export default withAuth(
+  connect(mapStateToProps, { getNeeds, getSurpluses, getOrganizations })(
+    Dashboard
+  )
+)
