@@ -2,8 +2,6 @@ import React from "react"
 import { connect } from "react-redux"
 
 const UserSurpluses = (props) => {
-  console.log("usersurplus", props)
-
   return (
     <table>
       <tbody>
