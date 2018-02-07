@@ -11,6 +11,8 @@ import surplusFormData from "./reducers/surplusFormData"
 import needFormData from "./reducers/needFormData"
 import surplusFormRender from "./reducers/surplusFormRender"
 import needFormRender from "./reducers/needFormRender"
+import surplusShowId from "./reducers/surplusShowId"
+import needShowId from "./reducers/surplusShowId"
 
 const reducers = combineReducers({
   currentUser,
@@ -23,7 +25,9 @@ const reducers = combineReducers({
   surplusFormData,
   needFormData,
   surplusFormRender,
-  needFormRender
+  needFormRender,
+  surplusShowId,
+  needShowId
 })
 
 export default createStore(reducers, applyMiddleware(thunk))

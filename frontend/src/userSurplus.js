@@ -1,9 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
+import { changeView } from "./actions/loginView"
+import { changeSurplusShowId } from "./actions/surplusShowId"
 
 const UserSurplus = (props) => {
-  const handleClick = () => {
-    console.log("omg pls")
+  const handleClick = (e) => {
+    const surplusShowId = e.target.id
+    props.changeView("SurplusShow")
+    props.changeSurplusShowId(surplusShowId)
   }
 
   return (
@@ -39,7 +43,7 @@ const UserSurplus = (props) => {
               <td>{surplus.available_date}</td>
               <td>{surplus.claim_by_date}</td>
               <td>
-                <button id={surplus.id} onClick={() => handleClick()}>
+                <button id={surplus.id} onClick={(e) => handleClick(e)}>
                   Edit
                 </button>
               </td>
@@ -58,4 +62,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(UserSurplus)
+export default connect(mapStateToProps, { changeView, changeSurplusShowId })(
+  UserSurplus
+)
