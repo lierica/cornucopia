@@ -1,7 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
 import { deleteSurplus } from "./actions/surpluses"
-
 import { changeView } from "./actions/loginView"
 
 const SurplusShow = (props) => {
@@ -16,6 +15,7 @@ const SurplusShow = (props) => {
       props.deleteSurplus(props.surplusId)
       props.changeView("Surpluses")
     } else if (action === "claimed") {
+    } else if (action === "like") {
     }
   }
 
@@ -39,7 +39,9 @@ const SurplusShow = (props) => {
           <h3>{currentSurplus.location}</h3>
           <h3>{currentSurplus.available_date}</h3>
           <h3>{currentSurplus.claim_by_date}</h3>
-          <h3>Liked By:</h3>
+          <h3 id="like" onClick={(e) => handleClick(e)}>
+            Liked By:
+          </h3>
         </div>
       ) : null}
 
