@@ -23,7 +23,9 @@ class Api::V1::NeedsController < ApplicationController
 
 	def destroy
 		@need = Need.find(params[:id])
+    need_id = @need.id
 		@need.destroy
+    render json: { need_id: need_id, message: "need successfully destroyed" }, status: 200
 	end
 
   private

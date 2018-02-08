@@ -23,7 +23,9 @@ class Api::V1::SurplusesController < ApplicationController
 
 	def destroy
 		@surplus = Surplus.find(params[:id])
+    surplus_id = @surplus.id
 		@surplus.destroy
+    render json: { surplus_id: surplus_id, message: "surplus successfully destroyed" }, status: 200
 	end
 
   private
