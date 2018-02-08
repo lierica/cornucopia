@@ -5,17 +5,37 @@ const SurplusShow = (props) => {
   const currentSurplus = props.surpluses.find(
     (surplus) => surplus.id === props.surplusId
   )
+
   return (
     <div>
-      <h1>{currentSurplus.title}</h1>
-      <button>Edit</button>
-      <button>Delete</button>
-      <h3>{currentSurplus.description}</h3>
-      <h3>{currentSurplus.category}</h3>
-      <h3>{`${currentSurplus.units} ${currentSurplus.unit_category}`}</h3>
-      <h3>{currentSurplus.location}</h3>
-      <h3>{currentSurplus.available_date}</h3>
-      <h3>{currentSurplus.claim_by_date}</h3>
+      {props.userCategory === "corporation" ? (
+        <div>
+          <h1>{currentSurplus.title}</h1>
+          <button>Edit</button>
+          <button>Delete</button>
+          <button>Claimed</button>
+          <h3>{currentSurplus.description}</h3>
+          <h3>{currentSurplus.category}</h3>
+          <h3>{`${currentSurplus.units} ${currentSurplus.unit_category}`}</h3>
+          <h3>{currentSurplus.location}</h3>
+          <h3>{currentSurplus.available_date}</h3>
+          <h3>{currentSurplus.claim_by_date}</h3>
+          <h3>Liked By:</h3>
+        </div>
+      ) : null}
+
+      {props.userCategory === "charity" ? (
+        <div>
+          <h1>{currentSurplus.title}</h1>
+          <h3>{currentSurplus.description}</h3>
+          <h3>{currentSurplus.category}</h3>
+          <h3>{`${currentSurplus.units} ${currentSurplus.unit_category}`}</h3>
+          <h3>{currentSurplus.location}</h3>
+          <h3>{currentSurplus.available_date}</h3>
+          <h3>{currentSurplus.claim_by_date}</h3>
+          <button>Like</button>
+        </div>
+      ) : null}
     </div>
   )
 }
