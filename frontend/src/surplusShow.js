@@ -1,19 +1,40 @@
 import React from "react"
 import { connect } from "react-redux"
+import { deleteSurplusFromIndex } from "./actions/surpluses"
+import { deleteSurplusFromUser } from "./actions/currentUser"
+import { changeView } from "./actions/loginView"
 
 const SurplusShow = (props) => {
   const currentSurplus = props.surpluses.find(
     (surplus) => surplus.id === props.surplusId
   )
 
+  const handleClick = (e) => {
+    let action = e.target.id
+    if (action === "edit") {
+    } else if (action === "delete") {
+      props.deleteSurplusFromIndex(props.surplusId)
+      props.deleteSurplusFromUser(props.surplusId)
+      props.changeView("Surpluses")
+    } else if (action === "claimed") {
+    }
+  }
+
+  console.log("surplus show pre render", props)
   return (
     <div>
       {props.userCategory === "corporation" ? (
         <div>
           <h1>{currentSurplus.title}</h1>
-          <button>Edit</button>
-          <button>Delete</button>
-          <button>Claimed</button>
+          <button id="edit" onClick={(e) => handleClick(e)}>
+            Edit
+          </button>
+          <button id="delete" onClick={(e) => handleClick(e)}>
+            Delete
+          </button>
+          <button id="claimed" onClick={(e) => handleClick(e)}>
+            Claimed
+          </button>
           <h3>{currentSurplus.description}</h3>
           <h3>{currentSurplus.category}</h3>
           <h3>{`${currentSurplus.units} ${currentSurplus.unit_category}`}</h3>
@@ -41,6 +62,7 @@ const SurplusShow = (props) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log("surplus show", state)
   return {
     userCategory: state.currentUser.profile.organization.category,
     surpluses: state.surpluses,
@@ -48,4 +70,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(SurplusShow)
+export default connect(mapStateToProps, {
+  deleteSurplusFromIndex,
+  deleteSurplusFromUser,
+  changeView
+})(SurplusShow)
