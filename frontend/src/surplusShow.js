@@ -56,7 +56,14 @@ const SurplusShow = (props) => {
           <h3>{currentSurplus.location}</h3>
           <h3>{currentSurplus.available_date}</h3>
           <h3>{currentSurplus.claim_by_date}</h3>
-          <h3>Liked By:</h3>
+          <h3>Shortlisted By:</h3>
+          {currentSurplus.likers.map((liker) => (
+            <ul key={liker.id}>
+              <li>{`${liker.first_name} ${liker.last_name}`}</li>
+              <li>{liker.organization}</li>
+              <button>See More</button>
+            </ul>
+          ))}
         </div>
       ) : null}
 
