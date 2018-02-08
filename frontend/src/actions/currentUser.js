@@ -19,9 +19,8 @@ export const createUser = (userFormData, history) => {
           alert(user.error)
         } else {
           localStorage.setItem("token", user.jwt)
-          dispatch({ type: "SET_NEW_USER", user }).then(
-            history.push("/dashboard")
-          )
+          dispatch({ type: "SET_NEW_USER", user })
+          history.push("/dashboard")
         }
       })
       .catch((error) => alert(error))
@@ -50,7 +49,6 @@ export const loginUser = (loginFormData, history) => {
 }
 
 export const fetchUser = () => (dispatch) => {
-  dispatch({ type: "ASYNC_START" })
   adapter.auth.getCurrentUser().then((user) => {
     dispatch({ type: "FETCH_USER_INFO", user })
   })
@@ -61,7 +59,7 @@ export const logoutUser = () => {
   return { type: "LOGOUT_USER" }
 }
 
-export const createSurplus = (surplusFormData) => {
+export const addSurplusToUser = (surplusFormData) => {
   return (dispatch) => {
     return fetch(`${API_URL}/surpluses`, {
       method: "POST",
@@ -73,7 +71,8 @@ export const createSurplus = (surplusFormData) => {
         if (surplus.error) {
           alert(surplus.error)
         } else {
-          dispatch({ type: "ADD_SURPLUS", surplus })
+          dispatch({ type: "ADD_SURPLUS_TO_USER", surplus })
+          dispatch({ type: "ADD_SURPLUS_TO_INDEX", surplus })
         }
       })
       .catch((error) => alert(error))
@@ -96,5 +95,12 @@ export const createNeed = (needFormData) => {
         }
       })
       .catch((error) => alert(error))
+  }
+}
+
+export const deleteSurplusFromUser = (surplusId) => {
+  return {
+    type: "DELETE_SURPLUS_FROM_USER",
+    surplusId
   }
 }

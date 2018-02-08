@@ -6,9 +6,11 @@ import { changeSurplusShowId } from "./actions/surplusShowId"
 const UserSurplus = (props) => {
   const handleClick = (e) => {
     const surplusShowId = e.target.id
-    props.changeView("SurplusShow")
     props.changeSurplusShowId(surplusShowId)
+    props.changeView("SurplusShow")
   }
+
+  console.log("user surplus", props)
 
   return (
     <table>
