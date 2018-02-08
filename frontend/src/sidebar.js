@@ -28,7 +28,6 @@ const SideBar = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log("in sidebar state", state)
   return {
     userCategory: state.currentUser.profile.organization.category
   }

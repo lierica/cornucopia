@@ -13,6 +13,8 @@ import surplusFormRender from "./reducers/surplusFormRender"
 import needFormRender from "./reducers/needFormRender"
 import surplusShowId from "./reducers/surplusShowId"
 import needShowId from "./reducers/needShowId"
+import likeFormRender from "./reducers/likeFormRender"
+import pitchedNeedId from "./reducers/pitchedNeedId"
 
 const reducers = combineReducers({
   currentUser,
@@ -26,6 +28,8 @@ const reducers = combineReducers({
   needFormData,
   surplusFormRender,
   needFormRender,
+  likeFormRender,
+  pitchedNeedId,
   surplusShowId,
   needShowId
 })

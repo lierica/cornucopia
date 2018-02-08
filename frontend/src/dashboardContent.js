@@ -5,7 +5,11 @@ const DashboardContent = (props) => {
   return (
     <div>
       <h1>{`Welcome, ${props.user.first_name} ${props.user.last_name}`}</h1>
-      <h1>some stats and stuff</h1>
+      <h1>
+        {props.userCategory === "charity"
+          ? "Pending Pitched Needs"
+          : "Open Surpluses"}
+      </h1>
       <h1>suggested surpluses/needs</h1>
     </div>
   )
@@ -13,7 +17,8 @@ const DashboardContent = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.currentUser.profile
+    user: state.currentUser.profile,
+    userCategory: state.currentUser.profile.organization.category
   }
 }
 

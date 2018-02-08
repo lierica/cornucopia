@@ -57,3 +57,25 @@ export const deleteNeed = (needId) => {
       .catch((error) => alert(error))
   }
 }
+
+export const createUserSurplusNeed = (
+  pitchedNeedId,
+  userId,
+  likedSurplusId
+) => {
+  return (dispatch) => {
+    return fetch(`${API_URL}/user_surplus_need/`, {
+      headers: HEADERS,
+      method: "POST",
+      body: JSON.stringify({
+        user_surplus_need: {
+          user_id: userId,
+          surplus_id: likedSurplusId,
+          need_id: pitchedNeedId
+        }
+      })
+    })
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+  }
+}
