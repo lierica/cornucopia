@@ -1,11 +1,10 @@
 import React from "react"
 import NavBar from "./navbar"
 import Body from "./body"
-import "./style/App.css"
 
 const App = () => {
   return (
-    <div className="wrapper">
+    <div className="ui fluid container">
       <NavBar />
       <Body />
     </div>

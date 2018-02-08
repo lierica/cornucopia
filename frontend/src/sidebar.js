@@ -8,7 +8,7 @@ const SideBar = (props) => {
   }
 
   return (
-    <div className="sidebar">
+    <div>
       <h3 id="Dashboard" onClick={(e) => handleClick(e)}>
         Dashboard
       </h3>

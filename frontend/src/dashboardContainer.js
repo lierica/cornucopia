@@ -12,7 +12,6 @@ import withAuth from "./hocs/withAuth"
 import { getNeeds } from "./actions/needs"
 import { getSurpluses } from "./actions/surpluses"
 import { getOrganizations } from "./actions/organizations"
-import "./style/Dashboard.css"
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -40,7 +39,7 @@ class Dashboard extends Component {
     }
 
     return (
-      <div className="loggedin-wrapper">
+      <div className>
         <NavBar />
         <SideBar />
         {view}

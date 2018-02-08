@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import NeedForm from "./needForm"
 import UserNeed from "./userNeed"
 import NeedIndex from "./needIndex"
-import "./style/Dashboard.css"
 import { toggleNeedFormRender } from "./actions/needFormRender"
 
 const NeedContainer = (props) => {
@@ -11,7 +10,7 @@ const NeedContainer = (props) => {
     props.toggleNeedFormRender()
   }
   return (
-    <div className="loggedin-wrapper">
+    <div>
       <div>
         <h1>
           {props.userCategory === "corporation"

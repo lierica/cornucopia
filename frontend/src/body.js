@@ -8,7 +8,7 @@ const Body = (props) => {
   }
 
   return (
-    <div className="body">
+    <div>
       <h1>body</h1>
       {props.loggedIn ? null : (
         <button onClick={() => handleSignup()}>Get Started</button>

@@ -10,8 +10,6 @@ const UserSurplus = (props) => {
     props.changeView("SurplusShow")
   }
 
-  console.log("user surplus", props)
-
   return (
     <table>
       <tbody>

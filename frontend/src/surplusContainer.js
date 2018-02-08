@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-import "./style/Dashboard.css"
 import SurplusForm from "./surplusForm"
 import UserSurplus from "./userSurplus"
 import SurplusIndex from "./surplusIndex"

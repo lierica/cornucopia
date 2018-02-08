@@ -16,12 +16,20 @@ const NavBar = (props) => {
   }
 
   return (
-    <div className="header">
-      <h1>CORNUCOPIA</h1>
+    <div className="ui fluid borderless menu">
+      <img className="item" src={require("./img/logo.png")} />
       {props.loggedIn ? (
-        <button onClick={() => handleLogout()}>Log Out</button>
+        <div className="right item">
+          <button className="ui button" onClick={() => handleLogout()}>
+            Log Out
+          </button>
+        </div>
       ) : (
-        <button onClick={() => handleLogin()}>Log In</button>
+        <div className="right item">
+          <button className="ui button" onClick={() => handleLogin()}>
+            Log In
+          </button>
+        </div>
       )}
     </div>
   )
