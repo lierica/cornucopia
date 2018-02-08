@@ -73,7 +73,8 @@ export const createSurplus = (surplusFormData) => {
         if (surplus.error) {
           alert(surplus.error)
         } else {
-          dispatch({ type: "ADD_SURPLUS", surplus })
+          dispatch({ type: "ADD_SURPLUS_TO_USER", surplus })
+          dispatch({ type: "ADD_SURPLUS_TO_INDEX", surplus })
         }
       })
       .catch((error) => alert(error))
@@ -92,7 +93,8 @@ export const createNeed = (needFormData) => {
         if (need.error) {
           alert(need.error)
         } else {
-          dispatch({ type: "ADD_NEED", need })
+          dispatch({ type: "ADD_NEED_TO_USER", need })
+          dispatch({ type: "ADD_NEED_TO_INDEX", need })
         }
       })
       .catch((error) => alert(error))
