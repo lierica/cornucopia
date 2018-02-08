@@ -1,10 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
+import { changeView } from "./actions/loginView"
+import { changeNeedShowId } from "./actions/needShowId"
 
 const NeedIndex = (props) => {
-  console.log("needindex props", props)
-  const handleClick = () => {
-    console.log("omg pls")
+  const handleClick = (e) => {
+    const needShowId = e.target.id
+    props.changeView("NeedShow")
+    props.changeNeedShowId(needShowId)
   }
 
   return (
@@ -36,7 +39,7 @@ const NeedIndex = (props) => {
               <td>{need.location}</td>
               <td>{need.fulfill_by_date}</td>
               <td>
-                <button id={need.id} onClick={() => handleClick()}>
+                <button id={need.id} onClick={(e) => handleClick(e)}>
                   More
                 </button>
               </td>
@@ -54,4 +57,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(NeedIndex)
+export default connect(mapStateToProps, { changeView, changeNeedShowId })(
+  NeedIndex
+)
