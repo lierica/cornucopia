@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
-import { deleteSurplusFromIndex } from "./actions/surpluses"
-import { deleteSurplusFromUser } from "./actions/currentUser"
+import { deleteSurplus } from "./actions/surpluses"
+
 import { changeView } from "./actions/loginView"
 
 const SurplusShow = (props) => {
@@ -13,14 +13,12 @@ const SurplusShow = (props) => {
     let action = e.target.id
     if (action === "edit") {
     } else if (action === "delete") {
-      props.deleteSurplusFromIndex(props.surplusId)
-      props.deleteSurplusFromUser(props.surplusId)
+      props.deleteSurplus(props.surplusId)
       props.changeView("Surpluses")
     } else if (action === "claimed") {
     }
   }
 
-  console.log("surplus show pre render", props)
   return (
     <div>
       {props.userCategory === "corporation" ? (
@@ -62,7 +60,6 @@ const SurplusShow = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log("surplus show", state)
   return {
     userCategory: state.currentUser.profile.organization.category,
     surpluses: state.surpluses,
@@ -71,7 +68,6 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-  deleteSurplusFromIndex,
-  deleteSurplusFromUser,
+  deleteSurplus,
   changeView
 })(SurplusShow)

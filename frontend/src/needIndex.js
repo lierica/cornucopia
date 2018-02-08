@@ -6,8 +6,8 @@ import { changeNeedShowId } from "./actions/needShowId"
 const NeedIndex = (props) => {
   const handleClick = (e) => {
     const needShowId = e.target.id
-    props.changeView("NeedShow")
     props.changeNeedShowId(needShowId)
+    props.changeView("NeedShow")
   }
 
   return (

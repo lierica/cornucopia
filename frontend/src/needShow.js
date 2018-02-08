@@ -1,21 +1,37 @@
 import React from "react"
 import { connect } from "react-redux"
+import { deleteNeed } from "./actions/needs"
+import { changeView } from "./actions/loginView"
 
 const NeedShow = (props) => {
   const currentNeed = props.needs.find((need) => {
     return need.id === props.needId
   })
 
-  console.log("need show props", props)
+  const handleClick = (e) => {
+    let action = e.target.id
+    if (action === "edit") {
+    } else if (action === "delete") {
+      props.deleteNeed(props.needId)
+      props.changeView("Needs")
+    } else if (action === "claimed") {
+    }
+  }
 
   return (
     <div>
       {props.userCategory === "charity" ? (
         <div>
           <h1>{currentNeed.title}</h1>
-          <button>Edit</button>
-          <button>Delete</button>
-          <button>Fulfilled</button>
+          <button id="edit" onClick={(e) => handleClick(e)}>
+            Edit
+          </button>
+          <button id="delete" onClick={(e) => handleClick(e)}>
+            Delete
+          </button>
+          <button id="fulfilled" onClick={(e) => handleClick(e)}>
+            Fulfilled
+          </button>
           <h3>{currentNeed.description}</h3>
           <h3>{currentNeed.category}</h3>
           <h3>{`${currentNeed.units} ${currentNeed.unit_category}`}</h3>
@@ -54,4 +70,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(NeedShow)
+export default connect(mapStateToProps, { deleteNeed, changeView })(NeedShow)

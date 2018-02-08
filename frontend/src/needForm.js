@@ -1,7 +1,7 @@
 import React from "react"
 import { updateNeedFormData } from "./actions/needFormData"
 import { toggleNeedFormRender } from "./actions/needFormRender"
-import { createNeed } from "./actions/currentUser"
+import { createNeed } from "./actions/needs"
 import { connect } from "react-redux"
 
 const NeedForm = (props) => {

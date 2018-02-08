@@ -1,6 +1,7 @@
 import { adapter } from "../services"
 
 const API_URL = "http://localhost:3000/api/v1"
+
 const HEADERS = {
   "Content-Type": "application/json",
   Accepts: "application/json"
@@ -57,51 +58,4 @@ export const fetchUser = () => (dispatch) => {
 export const logoutUser = () => {
   localStorage.removeItem("token")
   return { type: "LOGOUT_USER" }
-}
-
-export const addSurplusToUser = (surplusFormData) => {
-  return (dispatch) => {
-    return fetch(`${API_URL}/surpluses`, {
-      method: "POST",
-      headers: HEADERS,
-      body: JSON.stringify({ surplus: surplusFormData })
-    })
-      .then((response) => response.json())
-      .then((surplus) => {
-        if (surplus.error) {
-          alert(surplus.error)
-        } else {
-          dispatch({ type: "ADD_SURPLUS_TO_USER", surplus })
-          dispatch({ type: "ADD_SURPLUS_TO_INDEX", surplus })
-        }
-      })
-      .catch((error) => alert(error))
-  }
-}
-
-export const createNeed = (needFormData) => {
-  return (dispatch) => {
-    return fetch(`${API_URL}/needs`, {
-      method: "POST",
-      headers: HEADERS,
-      body: JSON.stringify({ need: needFormData })
-    })
-      .then((response) => response.json())
-      .then((need) => {
-        if (need.error) {
-          alert(need.error)
-        } else {
-          dispatch({ type: "ADD_NEED_TO_USER", need })
-          dispatch({ type: "ADD_NEED_TO_INDEX", need })
-        }
-      })
-      .catch((error) => alert(error))
-  }
-}
-
-export const deleteSurplusFromUser = (surplusId) => {
-  return {
-    type: "DELETE_SURPLUS_FROM_USER",
-    surplusId
-  }
 }

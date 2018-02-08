@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
           surpluses: state.profile.surpluses.concat(action.surplus)
         }
       }
-    case "ADD_NEED_USER":
+    case "ADD_NEED_TO_USER":
       return {
         ...state,
         profile: {
@@ -32,6 +32,14 @@ export default (state = initialState, action) => {
           surpluses: state.profile.surpluses.filter(
             (surplus) => surplus.id !== action.surplusId
           )
+        }
+      }
+    case "DELETE_NEED_FROM_USER":
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          needs: state.profile.needs.filter((need) => need.id !== action.needId)
         }
       }
     default:
