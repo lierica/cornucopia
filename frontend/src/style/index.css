@@ -6,4 +6,5 @@ body {
 .ui.fluid.borderless.menu {
   border: none;
   box-shadow: none;
+  margin-bottom: 0;
 }

@@ -21,7 +21,9 @@ class Login extends Component {
     const { email, password } = this.props.loginFormData
     return (
       <div>
-        <NavBar />
+        <div className="ui fluid container">
+          <NavBar />
+        </div>
         <h1>Log In</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Email</label>

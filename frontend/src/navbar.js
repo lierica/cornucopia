@@ -22,7 +22,7 @@ const NavBar = (props) => {
   }
 
   return (
-    <div className="ui fluid borderless menu">
+    <div className="ui fluid borderless sticky menu">
       <img
         className="item"
         alt=""

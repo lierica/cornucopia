@@ -8,21 +8,25 @@ const SideBar = (props) => {
   }
 
   return (
-    <div>
-      <h3 id="Dashboard" onClick={(e) => handleClick(e)}>
-        Dashboard
-      </h3>
-      <h3 id="Needs" onClick={(e) => handleClick(e)}>
-        {props.userCategory === "corporation" ? "Explore Needs" : "Your Needs"}
-      </h3>
-      <h3 id="Surpluses" onClick={(e) => handleClick(e)}>
-        {props.userCategory === "corporation"
-          ? "Your Surpluses"
-          : "Explore Surpluses"}
-      </h3>
-      <h3 id="History" onClick={(e) => handleClick(e)}>
-        History
-      </h3>
+    <div className="ui grid">
+      <div className="four wide column">
+        <h3 id="Dashboard" onClick={(e) => handleClick(e)}>
+          Dashboard
+        </h3>
+        <h3 id="Needs" onClick={(e) => handleClick(e)}>
+          {props.userCategory === "corporation"
+            ? "Explore Needs"
+            : "Your Needs"}
+        </h3>
+        <h3 id="Surpluses" onClick={(e) => handleClick(e)}>
+          {props.userCategory === "corporation"
+            ? "Your Surpluses"
+            : "Explore Surpluses"}
+        </h3>
+        <h3 id="History" onClick={(e) => handleClick(e)}>
+          History
+        </h3>
+      </div>
     </div>
   )
 }

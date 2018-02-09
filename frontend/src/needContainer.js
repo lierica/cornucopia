@@ -10,38 +10,36 @@ const NeedContainer = (props) => {
     props.toggleNeedFormRender()
   }
   return (
-    <div>
-      <div>
-        <h1>
-          {props.userCategory === "corporation"
-            ? "Explore Needs"
-            : props.formRender === false ? "Your Needs" : null}
-        </h1>
-        {props.userCategory === "charity" && props.formRender === false ? (
-          <button onClick={() => handleClick()}>Create Need</button>
-        ) : null}
+    <div className="twelve wide column">
+      <h1>
+        {props.userCategory === "corporation"
+          ? "Explore Needs"
+          : props.formRender === false ? "Your Needs" : null}
+      </h1>
+      {props.userCategory === "charity" && props.formRender === false ? (
+        <button onClick={() => handleClick()}>Create Need</button>
+      ) : null}
 
-        {props.userCategory === "charity" && props.formRender === true ? (
-          <div>
-            <button onClick={() => handleClick()}>Cancel</button>
-            <NeedForm />
-          </div>
-        ) : null}
+      {props.userCategory === "charity" && props.formRender === true ? (
+        <div>
+          <button onClick={() => handleClick()}>Cancel</button>
+          <NeedForm />
+        </div>
+      ) : null}
 
-        {props.userCategory === "charity" && props.formRender === false ? (
-          <div>
-            <p>Filter</p>
-            <UserNeed />
-          </div>
-        ) : null}
+      {props.userCategory === "charity" && props.formRender === false ? (
+        <div>
+          <p>Filter</p>
+          <UserNeed />
+        </div>
+      ) : null}
 
-        {props.userCategory === "corporation" && props.formRender === false ? (
-          <div>
-            <p>search bar</p>
-            <NeedIndex />
-          </div>
-        ) : null}
-      </div>
+      {props.userCategory === "corporation" && props.formRender === false ? (
+        <div>
+          <p>search bar</p>
+          <NeedIndex />
+        </div>
+      ) : null}
     </div>
   )
 }

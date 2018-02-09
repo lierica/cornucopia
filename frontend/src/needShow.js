@@ -19,7 +19,7 @@ const NeedShow = (props) => {
   }
 
   return (
-    <div>
+    <div className="twelve wide column">
       {props.userCategory === "charity" ? (
         <div>
           <h1>{currentNeed.title}</h1>
@@ -41,7 +41,7 @@ const NeedShow = (props) => {
       ) : null}
 
       {props.userCategory === "corporation" ? (
-        <div>
+        <div className="twelve wide column">
           <h1>{currentNeed.title}</h1>
           <h3>{currentNeed.description}</h3>
           <h3>{currentNeed.category}</h3>

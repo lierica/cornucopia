@@ -13,7 +13,7 @@ import { getNeeds } from "./actions/needs"
 import { getSurpluses } from "./actions/surpluses"
 import { getOrganizations } from "./actions/organizations"
 
-class Dashboard extends Component {
+class DashboardContainer extends Component {
   componentDidMount() {
     this.props.getOrganizations()
     this.props.getNeeds()
@@ -40,9 +40,13 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <NavBar />
-        <SideBar />
-        {view}
+        <div className="ui fluid container">
+          <NavBar />
+        </div>
+        <div className="ui grid">
+          <SideBar />
+          {view}
+        </div>
       </div>
     )
   }
@@ -57,6 +61,6 @@ const mapStateToProps = (state) => {
 
 export default withAuth(
   connect(mapStateToProps, { getNeeds, getSurpluses, getOrganizations })(
-    Dashboard
+    DashboardContainer
   )
 )
