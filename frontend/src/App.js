@@ -1,6 +1,7 @@
 import React from "react"
 import NavBar from "./navbar"
 import Body from "./body"
+import "./style/index.css"
 
 const App = () => {
   return (

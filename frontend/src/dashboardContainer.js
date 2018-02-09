@@ -39,7 +39,7 @@ class Dashboard extends Component {
     }
 
     return (
-      <div className>
+      <div>
         <NavBar />
         <SideBar />
         {view}

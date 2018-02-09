@@ -2,7 +2,7 @@ import React from "react"
 import { withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 import { logoutUser } from "./actions/currentUser"
-import { resetView } from "./actions/loginView"
+import { changeView, resetView } from "./actions/loginView"
 
 const NavBar = (props) => {
   const handleLogin = () => {
@@ -15,9 +15,20 @@ const NavBar = (props) => {
     props.history.push("/")
   }
 
+  const handleClick = () => {
+    props.history.location.pathname === "/dashboard"
+      ? props.changeView("")
+      : props.history.push("/")
+  }
+
   return (
     <div className="ui fluid borderless menu">
-      <img className="item" src={require("./img/logo.png")} />
+      <img
+        className="item"
+        alt=""
+        src={require("./imgs/logo.png")}
+        onClick={() => handleClick()}
+      />
       {props.loggedIn ? (
         <div className="right item">
           <button className="ui button" onClick={() => handleLogout()}>
@@ -42,5 +53,5 @@ const mapStateToProps = (state) => {
 }
 
 export default withRouter(
-  connect(mapStateToProps, { logoutUser, resetView })(NavBar)
+  connect(mapStateToProps, { logoutUser, resetView, changeView })(NavBar)
 )
