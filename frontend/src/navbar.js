@@ -5,10 +5,6 @@ import { logoutUser } from "./actions/currentUser"
 import { changeView, resetView } from "./actions/loginView"
 
 const NavBar = (props) => {
-  const handleLogin = () => {
-    props.history.push("/login")
-  }
-
   const handleLogout = () => {
     props.logoutUser()
     props.resetView()
@@ -26,7 +22,7 @@ const NavBar = (props) => {
       <img
         className="item"
         alt=""
-        src={require("./imgs/logo.png")}
+        src={require("./media/logo.png")}
         onClick={() => handleClick()}
       />
       {props.loggedIn ? (
@@ -35,13 +31,7 @@ const NavBar = (props) => {
             Log Out
           </button>
         </div>
-      ) : (
-        <div className="right item">
-          <button className="ui button" onClick={() => handleLogin()}>
-            Log In
-          </button>
-        </div>
-      )}
+      ) : null}
     </div>
   )
 }
