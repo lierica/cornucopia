@@ -3,6 +3,5 @@ class SurplusSerializer < ActiveModel::Serializer
 
 	belongs_to :user, serializer: UserNeedSurplusSerializer
 	belongs_to :organization, serializer: OrganizationNeedSurplusSerializer
-	has_many :likers, serializer: LikerSerializer
 
 end
