@@ -12,6 +12,8 @@ const SurplusShow = (props) => {
     (surplus) => surplus.id === props.surplusId
   )
 
+  console.log(currentSurplus)
+
   const handleClick = (e) => {
     let action = e.target.id
     if (action === "edit") {
@@ -63,15 +65,11 @@ const SurplusShow = (props) => {
           <h3>{currentSurplus.available_date}</h3>
           <h3>{currentSurplus.claim_by_date}</h3>
           <h3>Shortlisted By:</h3>
-          {currentSurplus.likers.map((liker) => (
-            <ul key={liker.id}>
-              <li>{`${liker.first_name} ${liker.last_name}`}</li>
-              <li>{liker.organization.name}</li>
-              <button
-                id="more"
-                value={liker.pitched_need_id}
-                onClick={(e) => handleClick(e)}
-              >
+          {currentSurplus.pitched_needs.map((need) => (
+            <ul key={need.id}>
+              <li>{`${need.user.first_name} ${need.user.last_name}`}</li>
+              <li>{need.organization.name}</li>
+              <button id="more" value={need.id} onClick={(e) => handleClick(e)}>
                 See More
               </button>
             </ul>
@@ -116,7 +114,7 @@ const mapStateToProps = (state) => {
     user: state.currentUser.profile,
     userCategory: state.currentUser.profile.organization.category,
     userNeeds: state.currentUser.profile.needs,
-    surpluses: state.surpluses,
+    surpluses: state.currentUser.profile.surpluses,
     surplusId: parseInt(state.surplusShowId),
     likeFormRender: state.likeFormRender,
     pitchedNeedId: parseInt(state.pitchedNeedId)
