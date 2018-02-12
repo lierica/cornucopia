@@ -3,49 +3,55 @@ import NavBar from "./navbar"
 import { loginUser } from "./actions/currentUser"
 import { updateLoginFormData } from "./actions/loginFormData"
 import { connect } from "react-redux"
+import "./style/login.css"
 
-class Login extends Component {
-  handleOnChange = (e) => {
+const Login = (props) => {
+  const handleOnChange = (e) => {
     const { name, value } = e.target
-    const loginFormData = Object.assign({}, this.props.loginFormData, {
+    const loginFormData = Object.assign({}, props.loginFormData, {
       [name]: value
     })
-    this.props.updateLoginFormData(loginFormData)
+    props.updateLoginFormData(loginFormData)
   }
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    this.props.loginUser(this.props.loginFormData, this.props.history)
+    props.loginUser(props.loginFormData, props.history)
   }
-  render() {
-    const { email, password } = this.props.loginFormData
-    return (
-      <div>
-        <div className="ui fluid container">
-          <NavBar />
-        </div>
-        <h1>Log In</h1>
-        <form onSubmit={this.handleSubmit}>
+
+  const { email, password } = props.loginFormData
+
+  return (
+    <div id="login">
+      <div className="ui fluid container">
+        <NavBar />
+      </div>
+      <h1>Log In</h1>
+      <div className="ui grid" id="login-content">
+        <form className="ui big form" onSubmit={(e) => handleSubmit(e)}>
           <label>Email</label>
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={this.handleOnChange}
-          />
-          <br />
+          <div className="fourteen wide field">
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={(e) => handleOnChange(e)}
+            />
+          </div>
           <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleOnChange}
-          />
-          <input type="submit" />
+          <div className="fourteen wide field">
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={(e) => handleOnChange(e)}
+            />
+          </div>
+          <input className="ui large button" type="submit" id="login-submit" />
         </form>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => {
