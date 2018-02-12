@@ -95,7 +95,5 @@ export const createUserSurplusNeed = (
         }
       })
     })
-      .then((response) => response.json())
-      .then((response) => console.log(response))
   }
 }

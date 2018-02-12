@@ -12,8 +12,9 @@ const SurplusShow = (props) => {
     (surplus) => surplus.id === props.surplusId
   )
 
-  console.log(currentSurplus)
-
+  const currentUserSurplus = props.userSurpluses.find(
+    (surplus) => surplus.id === props.surplusId
+  )
   const handleClick = (e) => {
     let action = e.target.id
     if (action === "edit") {
@@ -48,7 +49,7 @@ const SurplusShow = (props) => {
     <div className="twelve wide column">
       {props.userCategory === "corporation" ? (
         <div>
-          <h1>{currentSurplus.title}</h1>
+          <h1>{currentUserSurplus.title}</h1>
           <button id="edit" onClick={(e) => handleClick(e)}>
             Edit
           </button>
@@ -58,14 +59,16 @@ const SurplusShow = (props) => {
           <button id="claimed" onClick={(e) => handleClick(e)}>
             Claimed
           </button>
-          <h3>{currentSurplus.description}</h3>
-          <h3>{currentSurplus.category}</h3>
-          <h3>{`${currentSurplus.units} ${currentSurplus.unit_category}`}</h3>
-          <h3>{currentSurplus.location}</h3>
-          <h3>{currentSurplus.available_date}</h3>
-          <h3>{currentSurplus.claim_by_date}</h3>
+          <h3>{currentUserSurplus.description}</h3>
+          <h3>{currentUserSurplus.category}</h3>
+          <h3>{`${currentUserSurplus.units} ${
+            currentUserSurplus.unit_category
+          }`}</h3>
+          <h3>{currentUserSurplus.location}</h3>
+          <h3>{currentUserSurplus.available_date}</h3>
+          <h3>{currentUserSurplus.claim_by_date}</h3>
           <h3>Shortlisted By:</h3>
-          {currentSurplus.pitched_needs.map((need) => (
+          {currentUserSurplus.pitched_needs.map((need) => (
             <ul key={need.id}>
               <li>{`${need.user.first_name} ${need.user.last_name}`}</li>
               <li>{need.organization.name}</li>
@@ -110,11 +113,13 @@ const SurplusShow = (props) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     user: state.currentUser.profile,
     userCategory: state.currentUser.profile.organization.category,
     userNeeds: state.currentUser.profile.needs,
-    surpluses: state.currentUser.profile.surpluses,
+    userSurpluses: state.currentUser.profile.surpluses,
+    surpluses: state.surpluses,
     surplusId: parseInt(state.surplusShowId),
     likeFormRender: state.likeFormRender,
     pitchedNeedId: parseInt(state.pitchedNeedId)

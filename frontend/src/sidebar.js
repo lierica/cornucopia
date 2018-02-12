@@ -23,9 +23,6 @@ const SideBar = (props) => {
             ? "Your Surpluses"
             : "Explore Surpluses"}
         </h3>
-        <h3 id="History" onClick={(e) => handleClick(e)}>
-          History
-        </h3>
       </div>
     </div>
   )

@@ -4,7 +4,6 @@ import NavBar from "./navbar"
 import SideBar from "./sidebar"
 import NeedContainer from "./needContainer"
 import SurplusContainer from "./surplusContainer"
-import History from "./history"
 import DashboardContent from "./dashboardContent"
 import SurplusShow from "./surplusShow"
 import NeedShow from "./needShow"
@@ -32,9 +31,6 @@ class DashboardContainer extends Component {
         break
       case "Surpluses":
         view = <SurplusContainer />
-        break
-      case "History":
-        view = <History />
         break
       case "SurplusShow":
         view = <SurplusShow />

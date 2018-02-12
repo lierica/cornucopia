@@ -25,6 +25,8 @@ erica = User.create(first_name: "Erica", last_name: "Li", role: "Head of Corpora
 
 justin = User.create(first_name: "Justin", last_name: "Timberlake", role: "Chief Donation Officer", email: "justin.timberlake@gmail.com", password_digest: BCrypt::Password.create("123"), phone: "1234567899", organization_id: bowerymission.id)
 
+barack = User.create(first_name: "Barack", last_name: "Obama", role: "Supreme Do-Gooder", email: "barack.obama@gmail.com", password_digest: BCrypt::Password.create("123"), phone: "1234567899", organization_id: savethechildren.id)
+
 #Surpluses
 
 surplus1 = Surplus.create(title: "Chromebooks for Education", description: "Refurbished Chromebooks looking for a new home.", category: "Electronics", units: 20, unit_category: "unit", available_date: "2018-01-31", claim_by_date: "2018/06/30", location: "New York", organization_id: google.id, user_id: erica.id)
