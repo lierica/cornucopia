@@ -10,7 +10,7 @@ class Signup extends Component {
     this.props.getOrganizations()
   }
 
-  handleOnChange = (e) => {
+  handleChange = (e) => {
     const { name, value } = e.target
     const userFormData = Object.assign({}, this.props.userFormData, {
       [name]: value
@@ -44,14 +44,14 @@ class Signup extends Component {
             type="text"
             name="first_name"
             value={first_name}
-            onChange={this.handleOnChange}
+            onChange={this.handleChange}
           />
           <label>Last Name</label>
           <input
             type="text"
             name="last_name"
             value={last_name}
-            onChange={this.handleOnChange}
+            onChange={this.handleChange}
           />
           <br />
           <label>Email</label>
@@ -59,14 +59,14 @@ class Signup extends Component {
             type="text"
             name="email"
             value={email}
-            onChange={this.handleOnChange}
+            onChange={this.handleChange}
           />
           <label>Phone</label>
           <input
             type="text"
             name="phone"
             value={phone}
-            onChange={this.handleOnChange}
+            onChange={this.handleChange}
           />
           <br />
           <label>Password</label>
@@ -74,7 +74,7 @@ class Signup extends Component {
             type="password"
             name="password"
             value={password}
-            onChange={this.handleOnChange}
+            onChange={this.handleChange}
           />
           <label>Confirm Password</label>
           <input type="password" name="confirm_password" />
@@ -84,13 +84,13 @@ class Signup extends Component {
             type="text"
             name="organization"
             value={organization}
-            onChange={this.handleOnChange}
+            onChange={this.handleChange}
           />
           <label>Organization Category</label>
           <select
             name="organization_category"
             value={organization_category}
-            onChange={this.handleOnChange}
+            onChange={this.handleChange}
           >
             <option value="">Select</option>
             <option value="charity">Charity</option>
@@ -101,7 +101,7 @@ class Signup extends Component {
             type="text"
             name="role"
             value={role}
-            onChange={this.handleOnChange}
+            onChange={this.handleChange}
           />
           <input type="submit" />
         </form>

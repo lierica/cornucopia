@@ -14,6 +14,7 @@ const SurplusShow = (props) => {
   const handleClick = (e) => {
     let action = e.target.id
     if (action === "edit") {
+      props.changeView("SurplusEdit")
     } else if (action === "delete") {
       props.deleteSurplus(props.surplusId)
       props.changeView("Surpluses")

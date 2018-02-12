@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import NavBar from "./navbar"
 import SideBar from "./sidebar"
 import NeedContainer from "./needContainer"
@@ -7,7 +8,8 @@ import History from "./history"
 import DashboardContent from "./dashboardContent"
 import SurplusShow from "./surplusShow"
 import NeedShow from "./needShow"
-import { connect } from "react-redux"
+import SurplusEditForm from "./surplusEditForm"
+import NeedEditForm from "./needEditForm"
 import withAuth from "./hocs/withAuth"
 import { getNeeds } from "./actions/needs"
 import { getSurpluses } from "./actions/surpluses"
@@ -24,18 +26,30 @@ class DashboardContainer extends Component {
     const viewState = this.props.view
     let view = null
 
-    if (viewState === "Needs") {
-      view = <NeedContainer />
-    } else if (viewState === "Surpluses") {
-      view = <SurplusContainer />
-    } else if (viewState === "History") {
-      view = <History />
-    } else if (viewState === "SurplusShow") {
-      view = <SurplusShow />
-    } else if (viewState === "NeedShow") {
-      view = <NeedShow />
-    } else {
-      view = <DashboardContent />
+    switch (viewState) {
+      case "Needs":
+        view = <NeedContainer />
+        break
+      case "Surpluses":
+        view = <SurplusContainer />
+        break
+      case "History":
+        view = <History />
+        break
+      case "SurplusShow":
+        view = <SurplusShow />
+        break
+      case "NeedShow":
+        view = <NeedShow />
+        break
+      case "NeedEdit":
+        view = <NeedEditForm />
+        break
+      case "SurplusEdit":
+        view = <SurplusEditForm />
+        break
+      default:
+        view = <DashboardContent />
     }
 
     return (

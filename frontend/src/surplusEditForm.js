@@ -9,8 +9,6 @@ const SurplusEditForm = (props) => {
     (surplus) => surplus.id === props.surplusId
   )
 
-  console.log(currentSurplus)
-
   const {
     title,
     description,
@@ -46,7 +44,6 @@ const SurplusEditForm = (props) => {
         <input
           type="text"
           name="title"
-          placeholder={currentSurplus.title}
           value={title}
           onChange={(e) => handleChange(e)}
         />
@@ -54,7 +51,6 @@ const SurplusEditForm = (props) => {
         <label>Description</label>
         <textarea
           name="description"
-          placeholder={currentSurplus.description}
           value={description}
           onChange={(e) => handleChange(e)}
         >
@@ -65,7 +61,6 @@ const SurplusEditForm = (props) => {
         <input
           type="text"
           name="category"
-          placeholder={currentSurplus.category}
           value={category}
           onChange={(e) => handleChange(e)}
         />
@@ -74,16 +69,14 @@ const SurplusEditForm = (props) => {
         <input
           type="number"
           name="units"
-          placeholder={currentSurplus.units}
           value={units}
           onChange={(e) => handleChange(e)}
         />
         <label>Unit Category</label>
         <select
           name="unit_category"
-          placeholder={currentSurplus.unit_category}
-          placeholder={currentSurplus.unit_category}
           onChange={(e) => handleChange(e)}
+          value={unit_category}
         >
           <option value="">Select</option>
           <option value="piece">Piece</option>
@@ -101,7 +94,7 @@ const SurplusEditForm = (props) => {
         <input
           type="text"
           name="location"
-          value={currentSurplus.location}
+          value={location}
           onChange={(e) => handleChange(e)}
         />
         <br />
@@ -109,7 +102,7 @@ const SurplusEditForm = (props) => {
         <input
           type="date"
           name="available_date"
-          value={currentSurplus.available_date}
+          value={available_date}
           onChange={(e) => handleChange(e)}
         />
         <br />
@@ -117,7 +110,7 @@ const SurplusEditForm = (props) => {
         <input
           type="date"
           name="claim_by_date"
-          value={currentSurplus.claim_by_date}
+          value={claim_by_date}
           onChange={(e) => handleChange(e)}
         />
         <br />

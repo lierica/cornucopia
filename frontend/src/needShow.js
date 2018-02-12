@@ -11,6 +11,7 @@ const NeedShow = (props) => {
   const handleClick = (e) => {
     let action = e.target.id
     if (action === "edit") {
+      props.changeView("NeedEdit")
     } else if (action === "delete") {
       props.deleteNeed(props.needId)
       props.changeView("Needs")

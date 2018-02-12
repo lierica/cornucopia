@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import NavBar from "./navbar"
 import { loginUser } from "./actions/currentUser"
 import { updateLoginFormData } from "./actions/loginFormData"
@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 import "./style/login.css"
 
 const Login = (props) => {
-  const handleOnChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target
     const loginFormData = Object.assign({}, props.loginFormData, {
       [name]: value
@@ -22,11 +22,11 @@ const Login = (props) => {
   const { email, password } = props.loginFormData
 
   return (
-    <div id="login">
+    <div>
       <div className="ui fluid container">
         <NavBar />
       </div>
-      <h1>Log In</h1>
+      <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Log In</h1>
       <div className="ui grid" id="login-content">
         <form className="ui big form" onSubmit={(e) => handleSubmit(e)}>
           <label>Email</label>
@@ -35,7 +35,7 @@ const Login = (props) => {
               type="text"
               name="email"
               value={email}
-              onChange={(e) => handleOnChange(e)}
+              onChange={(e) => handleChange(e)}
             />
           </div>
           <label>Password</label>
@@ -44,7 +44,7 @@ const Login = (props) => {
               type="password"
               name="password"
               value={password}
-              onChange={(e) => handleOnChange(e)}
+              onChange={(e) => handleChange(e)}
             />
           </div>
           <input className="ui large button" type="submit" id="login-submit" />
