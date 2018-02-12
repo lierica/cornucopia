@@ -5,6 +5,7 @@ import { toggleLikeFormRender } from "./actions/likeFormRender"
 import { changeView } from "./actions/loginView"
 import { changePitchedNeedId } from "./actions/pitchedNeedId"
 import { createUserSurplusNeed } from "./actions/needs"
+import { changeNeedShowId } from "./actions/needShowId"
 
 const SurplusShow = (props) => {
   const currentSurplus = props.surpluses.find(
@@ -21,6 +22,9 @@ const SurplusShow = (props) => {
     } else if (action === "claimed") {
     } else if (action === "pitch") {
       props.toggleLikeFormRender()
+    } else if (action === "more") {
+      props.changeNeedShowId(e.target.value)
+      props.changeView("NeedShow")
     }
   }
 
@@ -62,7 +66,13 @@ const SurplusShow = (props) => {
             <ul key={liker.id}>
               <li>{`${liker.first_name} ${liker.last_name}`}</li>
               <li>{liker.organization}</li>
-              <button>See More</button>
+              <button
+                id="more"
+                value={liker.pitched_need_id}
+                onClick={(e) => handleClick(e)}
+              >
+                See More
+              </button>
             </ul>
           ))}
         </div>
@@ -117,5 +127,6 @@ export default connect(mapStateToProps, {
   changeView,
   toggleLikeFormRender,
   changePitchedNeedId,
-  createUserSurplusNeed
+  createUserSurplusNeed,
+  changeNeedShowId
 })(SurplusShow)
