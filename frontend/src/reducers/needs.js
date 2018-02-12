@@ -6,6 +6,9 @@ export default (state = [], action) => {
       return state.concat(action.need)
     case "DELETE_NEED_FROM_INDEX":
       return state.filter((need) => need.id !== action.needId)
+    case "UPDATE_NEED_IN_INDEX":
+      let newNeeds = state.filter((need) => need.id !== action.need.id)
+      return newNeeds.concat(action.need)
     default:
       return state
   }

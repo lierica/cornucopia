@@ -77,8 +77,8 @@ export const updateSurplus = (surplusFormData, surplusId) => {
         if (surplus.error) {
           alert(surplus.error)
         } else {
-          // dispatch({ type: "ADD_SURPLUS_TO_USER", surplus })
-          // dispatch({ type: "ADD_SURPLUS_TO_INDEX", surplus })
+          dispatch({ type: "UPDATE_SURPLUS_IN_USER", surplus })
+          dispatch({ type: "UPDATE_SURPLUS_IN_INDEX", surplus })
         }
       })
       .catch((error) => alert(error))

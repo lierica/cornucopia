@@ -39,6 +39,7 @@ const SurplusShow = (props) => {
     let likedSurplusId = props.surplusId
     e.preventDefault()
     props.createUserSurplusNeed(pitchedNeedId, userId, likedSurplusId)
+    props.toggleLikeFormRender()
   }
 
   return (
@@ -65,7 +66,7 @@ const SurplusShow = (props) => {
           {currentSurplus.likers.map((liker) => (
             <ul key={liker.id}>
               <li>{`${liker.first_name} ${liker.last_name}`}</li>
-              <li>{liker.organization}</li>
+              <li>{liker.organization.name}</li>
               <button
                 id="more"
                 value={liker.pitched_need_id}

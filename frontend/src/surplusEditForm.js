@@ -5,11 +5,11 @@ import { updateSurplus } from "./actions/surpluses"
 import { connect } from "react-redux"
 
 class SurplusEditForm extends Component {
-  // const currentSurplus = props.surpluses.find(
-  //   (surplus) => surplus.id === props.surplusId
-  // )
   componentDidMount() {
-    this.props.updateSurplusFormData(this.props.currentSurplus)
+    const currentSurplus = this.props.surpluses.find(
+      (surplus) => surplus.id === this.props.surplusId
+    )
+    this.props.updateSurplusFormData(currentSurplus)
   }
 
   handleChange = (e) => {
@@ -47,7 +47,7 @@ class SurplusEditForm extends Component {
           <input
             type="text"
             name="title"
-            value={this.props.surplusFormData.title}
+            value={title}
             onChange={(e) => this.handleChange(e)}
           />
           <br />
@@ -125,16 +125,11 @@ class SurplusEditForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  let sfd = state.surpluses.find(
-    (surplus) => surplus.id === parseInt(state.surplusId)
-  )
-
   return {
     surplusId: parseInt(state.surplusShowId),
     surpluses: state.surpluses,
     surplusFormData: state.surplusFormData,
-    user: state.currentUser.profile,
-    currentSurplus: sfd
+    user: state.currentUser.profile
   }
 }
 
