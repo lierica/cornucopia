@@ -21,7 +21,6 @@ const NeedForm = (props) => {
     props.toggleNeedFormRender()
   }
 
-  console.log(props)
   const {
     title,
     description,

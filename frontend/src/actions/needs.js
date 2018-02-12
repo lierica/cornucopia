@@ -58,6 +58,26 @@ export const deleteNeed = (needId) => {
   }
 }
 
+export const updateNeed = (needFormData, needId) => {
+  return (dispatch) => {
+    return fetch(`${API_URL}/needs/${needId}`, {
+      method: "PATCH",
+      headers: HEADERS,
+      body: JSON.stringify({ need: needFormData })
+    })
+      .then((response) => response.json())
+      .then((need) => {
+        if (need.error) {
+          alert(need.error)
+        } else {
+          dispatch({ type: "UPDATE_NEED_IN_USER", need })
+          dispatch({ type: "UPDATE_NEED_IN_INDEX", need })
+        }
+      })
+      .catch((error) => alert(error))
+  }
+}
+
 export const createUserSurplusNeed = (
   pitchedNeedId,
   userId,

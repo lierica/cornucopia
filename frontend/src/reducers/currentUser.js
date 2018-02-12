@@ -53,7 +53,7 @@ export default (state = initialState, action) => {
           surpluses: newUserSurpluses.concat(action.surplus)
         }
       }
-    case "UPDATE_SURPLUS_IN_USER":
+    case "UPDATE_NEED_IN_USER":
       let newUserNeeds = state.profile.needs.filter(
         (need) => need.id !== action.need.id
       )
