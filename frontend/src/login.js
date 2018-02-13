@@ -3,7 +3,7 @@ import NavBar from "./navbar"
 import { loginUser } from "./actions/currentUser"
 import { updateLoginFormData } from "./actions/loginFormData"
 import { connect } from "react-redux"
-import "./style/login.css"
+import "./style/loginSignup.css"
 
 const Login = (props) => {
   const handleChange = (e) => {
@@ -26,29 +26,52 @@ const Login = (props) => {
       <div className="ui fluid container">
         <NavBar />
       </div>
-      <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Log In</h1>
-      <div className="ui grid" id="login-content">
-        <form className="ui big form" onSubmit={(e) => handleSubmit(e)}>
-          <label>Email</label>
-          <div className="fourteen wide field">
-            <input
-              type="text"
-              name="email"
-              value={email}
-              onChange={(e) => handleChange(e)}
-            />
+
+      <div className="middle aligned center aligned grid" id="loginSignupForm">
+        <div className="column">
+          <div className="row">
+            <h1
+              class="ui image header"
+              style={{ fontFamily: "Nunito, sans-serif" }}
+            >
+              Log In
+            </h1>
+            <img id="cornucopiaIcon" src={require("./media/icon.png")} alt="" />
           </div>
-          <label>Password</label>
-          <div className="fourteen wide field">
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={(e) => handleChange(e)}
-            />
+          <form className="ui large form" onSubmit={(e) => handleSubmit(e)}>
+            <div className="ui stacked segment">
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="user icon" />
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="E-mail"
+                    value={email}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+              </div>
+
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="lock icon" />
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    placeholder="Password"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+              </div>
+              <input className="ui large button" type="submit" />
+            </div>
+          </form>
+          <div className="ui message">
+            New to us? <a href="/signup"> Sign Up</a>
           </div>
-          <input className="ui large button" type="submit" id="login-submit" />
-        </form>
+        </div>
       </div>
     </div>
   )

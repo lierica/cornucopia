@@ -113,7 +113,6 @@ const SurplusShow = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     user: state.currentUser.profile,
     userCategory: state.currentUser.profile.organization.category,

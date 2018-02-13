@@ -1,0 +1,30 @@
+.ui.form {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400px;
+}
+
+.ui.button {
+  border: 2px solid #000000;
+  color: #000000;
+  background-color: transparent;
+}
+
+.ui.message {
+  font-family: "Nunito", sans-serif;
+}
+
+#loginSignupForm {
+  height: 70%;
+  text-align: center;
+  position: absolute;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#cornucopiaIcon {
+  margin-left: 10px;
+}
