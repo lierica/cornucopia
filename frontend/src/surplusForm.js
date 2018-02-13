@@ -5,7 +5,7 @@ import { toggleSurplusFormRender } from "./actions/surplusFormRender"
 import { connect } from "react-redux"
 
 const SurplusForm = (props) => {
-  const handleOnChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target
     const surplusFormData = Object.assign({}, props.surplusFormData, {
       [name]: value,
@@ -41,14 +41,14 @@ const SurplusForm = (props) => {
           type="text"
           name="title"
           value={title}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <br />
         <label>Description</label>
         <textarea
           name="description"
           value={description}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         >
           Description
         </textarea>
@@ -58,7 +58,7 @@ const SurplusForm = (props) => {
           type="text"
           name="category"
           value={category}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <br />
         <label>Units</label>
@@ -66,13 +66,13 @@ const SurplusForm = (props) => {
           type="number"
           name="units"
           value={units}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <label>Unit Category</label>
         <select
           name="unit_category"
           value={unit_category}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         >
           <option value="">Select</option>
           <option value="piece">Piece</option>
@@ -91,7 +91,7 @@ const SurplusForm = (props) => {
           type="text"
           name="location"
           value={location}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <br />
         <label>Available On</label>
@@ -99,7 +99,7 @@ const SurplusForm = (props) => {
           type="date"
           name="available_date"
           value={available_date}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <br />
         <label>Claim By</label>
@@ -107,7 +107,7 @@ const SurplusForm = (props) => {
           type="date"
           name="claim_by_date"
           value={claim_by_date}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <br />
         <input type="submit" />

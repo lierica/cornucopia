@@ -121,7 +121,7 @@ class Signup extends Component {
                     type="text"
                     name="organization"
                     value={organization}
-                    placeholder="Organization"
+                    placeholder="Organization Name"
                     onChange={this.handleChange}
                   />
                 </div>
@@ -132,7 +132,7 @@ class Signup extends Component {
                     value={organization_category}
                     onChange={this.handleChange}
                   >
-                    <option value="">Select</option>
+                    <option value="charity">Organization Type</option>
                     <option value="charity">Charity</option>
                     <option value="corporation">Corporation</option>
                   </select>

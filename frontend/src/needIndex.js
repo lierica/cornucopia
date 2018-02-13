@@ -10,6 +10,12 @@ const NeedIndex = (props) => {
     props.changeView("NeedShow")
   }
 
+  const searchedNeeds = props.needs.filter(
+    (need) =>
+      need.category.toLowerCase().includes(props.searchTerm) ||
+      need.title.toLowerCase().includes(props.searchTerm)
+  )
+
   return (
     <table>
       <tbody>
@@ -31,7 +37,7 @@ const NeedIndex = (props) => {
           </th>
         </tr>
 
-        {props.needs.map((need) => {
+        {searchedNeeds.map((need) => {
           return (
             <tr key={need.id}>
               <td>{need.title}</td>
@@ -53,7 +59,8 @@ const NeedIndex = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    needs: state.needs
+    needs: state.needs,
+    searchTerm: state.searchTerm.toLowerCase()
   }
 }
 

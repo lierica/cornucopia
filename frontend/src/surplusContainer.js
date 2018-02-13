@@ -1,9 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
+import { toggleSurplusFormRender } from "./actions/surplusFormRender"
 import SurplusForm from "./surplusForm"
 import UserSurplus from "./userSurplus"
 import SurplusIndex from "./surplusIndex"
-import { toggleSurplusFormRender } from "./actions/surplusFormRender"
+import SearchBar from "./searchBar"
 
 const SurplusContainer = (props) => {
   const handleClick = () => {
@@ -35,7 +36,7 @@ const SurplusContainer = (props) => {
 
       {props.userCategory === "charity" && props.formRender === false ? (
         <div>
-          <p>search bar</p>
+          <SearchBar />
           <SurplusIndex />
         </div>
       ) : null}

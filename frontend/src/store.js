@@ -15,6 +15,7 @@ import surplusShowId from "./reducers/surplusShowId"
 import needShowId from "./reducers/needShowId"
 import likeFormRender from "./reducers/likeFormRender"
 import pitchedNeedId from "./reducers/pitchedNeedId"
+import searchTerm from "./reducers/searchTerm"
 
 const reducers = combineReducers({
   currentUser,
@@ -31,7 +32,8 @@ const reducers = combineReducers({
   likeFormRender,
   pitchedNeedId,
   surplusShowId,
-  needShowId
+  needShowId,
+  searchTerm
 })
 
 export default createStore(

@@ -9,6 +9,13 @@ const SurplusIndex = (props) => {
     props.changeView("SurplusShow")
     props.changeSurplusShowId(surplusShowId)
   }
+
+  const searchedSurpluses = props.surpluses.filter(
+    (surplus) =>
+      surplus.category.toLowerCase().includes(props.searchTerm) ||
+      surplus.title.toLowerCase().includes(props.searchTerm)
+  )
+
   return (
     <table>
       <tbody>
@@ -33,7 +40,7 @@ const SurplusIndex = (props) => {
           </th>
         </tr>
 
-        {props.surpluses.map((surplus) => {
+        {searchedSurpluses.map((surplus) => {
           return (
             <tr key={surplus.id}>
               <td>{surplus.title}</td>
@@ -56,7 +63,8 @@ const SurplusIndex = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    surpluses: state.surpluses
+    surpluses: state.surpluses,
+    searchTerm: state.searchTerm.toLowerCase()
   }
 }
 

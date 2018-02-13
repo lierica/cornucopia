@@ -5,7 +5,7 @@ import { createNeed } from "./actions/needs"
 import { connect } from "react-redux"
 
 const NeedForm = (props) => {
-  const handleOnChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target
     const needFormData = Object.assign({}, props.needFormData, {
       [name]: value,
@@ -40,14 +40,14 @@ const NeedForm = (props) => {
           type="text"
           name="title"
           value={title}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <br />
         <label>Description</label>
         <textarea
           name="description"
           value={description}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         >
           Description
         </textarea>
@@ -57,7 +57,7 @@ const NeedForm = (props) => {
           type="text"
           name="category"
           value={category}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <br />
         <label>Units</label>
@@ -65,13 +65,13 @@ const NeedForm = (props) => {
           type="number"
           name="units"
           value={units}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <label>Unit Category</label>
         <select
           name="unit_category"
           value={unit_category}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         >
           <option value="">Select</option>
           <option value="piece">Piece</option>
@@ -90,7 +90,7 @@ const NeedForm = (props) => {
           type="text"
           name="location"
           value={location}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <br />
         <br />
@@ -99,7 +99,7 @@ const NeedForm = (props) => {
           type="date"
           name="fulfill_by_date"
           value={fulfill_by_date}
-          onChange={(e) => handleOnChange(e)}
+          onChange={(e) => handleChange(e)}
         />
         <br />
         <input type="submit" />

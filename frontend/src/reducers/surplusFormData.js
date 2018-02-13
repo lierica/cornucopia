@@ -16,6 +16,6 @@ export default (state = initialState, action) => {
     case "UPDATE_SURPLUS_FORM_DATA":
       return action.surplusFormData
     default:
-      return initialState
+      return state
   }
 }

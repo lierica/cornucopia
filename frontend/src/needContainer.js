@@ -1,9 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
+import { toggleNeedFormRender } from "./actions/needFormRender"
 import NeedForm from "./needForm"
 import UserNeed from "./userNeed"
 import NeedIndex from "./needIndex"
-import { toggleNeedFormRender } from "./actions/needFormRender"
+import SearchBar from "./searchBar"
 
 const NeedContainer = (props) => {
   const handleClick = () => {
@@ -36,7 +37,7 @@ const NeedContainer = (props) => {
 
       {props.userCategory === "corporation" && props.formRender === false ? (
         <div>
-          <p>search bar</p>
+          <SearchBar />
           <NeedIndex />
         </div>
       ) : null}

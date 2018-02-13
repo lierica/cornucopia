@@ -31,7 +31,7 @@ const Login = (props) => {
         <div className="column">
           <div className="row">
             <h1
-              class="ui image header"
+              className="ui image header"
               style={{ fontFamily: "Nunito, sans-serif" }}
             >
               Log In

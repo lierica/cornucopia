@@ -8,6 +8,6 @@ export default (state = initialState, action) => {
     case "UPDATE_LOGIN_FORM_DATA":
       return action.loginFormData
     default:
-      return initialState
+      return state
   }
 }
