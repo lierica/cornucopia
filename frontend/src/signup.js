@@ -127,7 +127,7 @@ class Signup extends Component {
                 </div>
                 <div className="field">
                   <select
-                    className="ui select"
+                    className="ui dropdown"
                     name="organization_category"
                     value={organization_category}
                     onChange={this.handleChange}

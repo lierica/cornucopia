@@ -13,6 +13,16 @@
   font-family: "Nunito", sans-serif;
 }
 
+.ui.dropdown {
+  font-family: "Nunito", sans-serif;
+}
+
+::placeholder {
+  font-family: "Nunito", sans-serif !important;
+  font-weight: 400px !important;
+  color: #000000 !important;
+}
+
 #loginSignupForm {
   height: 70%;
   text-align: center;
@@ -20,6 +30,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 400px;
   text-align: center;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
