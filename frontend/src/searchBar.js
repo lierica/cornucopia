@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import { changeSearchTerm } from "./actions/searchTerm"
 
 const SearchBar = (props) => {
-  const searchTerm = null
   const handleChange = (e) => {
     props.changeSearchTerm(e.target.value)
   }

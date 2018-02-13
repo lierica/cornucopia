@@ -24,9 +24,6 @@ const SurplusContainer = (props) => {
       ) : null}
       {props.userCategory === "corporation" && props.formRender === true ? (
         <div>
-          <button className="ui button" onClick={() => handleClick()}>
-            Cancel
-          </button>
           <SurplusForm />
         </div>
       ) : null}

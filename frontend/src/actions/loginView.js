@@ -1,5 +1,8 @@
 export const changeView = (view) => {
-  return { type: "CHANGE_VIEW", view }
+  return (dispatch) => {
+    dispatch({ type: "CHANGE_VIEW", view })
+    dispatch({ type: "RESET_SEARCH_TERM" })
+  }
 }
 
 export const resetView = (view) => {

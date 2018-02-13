@@ -3,6 +3,7 @@ import { updateSurplusFormData } from "./actions/surplusFormData"
 import { createSurplus } from "./actions/surpluses"
 import { toggleSurplusFormRender } from "./actions/surplusFormRender"
 import { connect } from "react-redux"
+import "./style/createUpdateForm.css"
 
 const SurplusForm = (props) => {
   const handleChange = (e) => {
@@ -21,6 +22,10 @@ const SurplusForm = (props) => {
     props.toggleSurplusFormRender()
   }
 
+  const handleClick = (e) => {
+    props.toggleSurplusFormRender()
+  }
+
   const {
     title,
     description,
@@ -33,84 +38,124 @@ const SurplusForm = (props) => {
   } = props.surplusFormData
 
   return (
-    <div>
-      <h1>New Surplus</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label>Title</label>
-        <input
-          type="text"
-          name="title"
-          value={title}
-          onChange={(e) => handleChange(e)}
-        />
-        <br />
-        <label>Description</label>
-        <textarea
-          name="description"
-          value={description}
-          onChange={(e) => handleChange(e)}
-        >
-          Description
-        </textarea>
-        <br />
-        <label>Category</label>
-        <input
-          type="text"
-          name="category"
-          value={category}
-          onChange={(e) => handleChange(e)}
-        />
-        <br />
-        <label>Units</label>
-        <input
-          type="number"
-          name="units"
-          value={units}
-          onChange={(e) => handleChange(e)}
-        />
-        <label>Unit Category</label>
-        <select
-          name="unit_category"
-          value={unit_category}
-          onChange={(e) => handleChange(e)}
-        >
-          <option value="">Select</option>
-          <option value="piece">Piece</option>
-          <option value="bag">Bag</option>
-          <option value="box">Box</option>
-          <option value="pound">Pound</option>
-          <option value="item">Item</option>
-          <option value="bottle">Bottle</option>
-          <option value="roll">Roll</option>
-          <option value="can">Can</option>
-          <option value="tube">Tube</option>
-        </select>
-        <br />
-        <label>Location</label>
-        <input
-          type="text"
-          name="location"
-          value={location}
-          onChange={(e) => handleChange(e)}
-        />
-        <br />
-        <label>Available On</label>
-        <input
-          type="date"
-          name="available_date"
-          value={available_date}
-          onChange={(e) => handleChange(e)}
-        />
-        <br />
-        <label>Claim By</label>
-        <input
-          type="date"
-          name="claim_by_date"
-          value={claim_by_date}
-          onChange={(e) => handleChange(e)}
-        />
-        <br />
+    <div className="column" id="createUpdateForm">
+      <h1>Create a Surplus</h1>
+      <form onSubmit={(e) => handleSubmit(e)} className="ui form">
+        <div className="field">
+          <label>Title</label>
+          <input
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => handleChange(e)}
+            placeholder="Title"
+          />
+        </div>
+        <div className="field">
+          <label>Description</label>
+          <textarea
+            name="description"
+            value={description}
+            onChange={(e) => handleChange(e)}
+            rows="3"
+            placeholder="Description"
+          />
+        </div>
+        <div className="two fields">
+          <div className="field">
+            <input
+              type="text"
+              name="category"
+              value={category}
+              onChange={(e) => handleChange(e)}
+              placeholder="Category"
+            />
+          </div>
+          <div className="field">
+            <input
+              type="text"
+              name="location"
+              value={location}
+              onChange={(e) => handleChange(e)}
+              placeholder="Location"
+            />
+          </div>
+        </div>
+        <div className="two fields">
+          <div className="field">
+            <input
+              type="number"
+              name="units"
+              value={units}
+              onChange={(e) => handleChange(e)}
+              placeholder="Units"
+            />
+          </div>
+          <div className="field">
+            {parseInt(props.surplusFormData.units) === 1 ||
+            props.surplusFormData.units === "" ? (
+              <select
+                className="ui dropdown"
+                name="unit_category"
+                value={unit_category}
+                onChange={(e) => handleChange(e)}
+              >
+                <option value="">Unit Category</option>
+                <option value="piece">Piece</option>
+                <option value="bag">Bag</option>
+                <option value="box">Box</option>
+                <option value="pound">Pound</option>
+                <option value="item">Item</option>
+                <option value="bottle">Bottle</option>
+                <option value="roll">Roll</option>
+                <option value="can">Can</option>
+                <option value="tube">Tube</option>
+              </select>
+            ) : (
+              <select
+                className="ui dropdown"
+                name="unit_category"
+                value={unit_category}
+                onChange={(e) => handleChange(e)}
+              >
+                <option value="">Unit Category</option>
+                <option value="piece">Pieces</option>
+                <option value="bag">Bags</option>
+                <option value="box">Boxes</option>
+                <option value="pound">Pounds</option>
+                <option value="item">Items</option>
+                <option value="bottle">Bottles</option>
+                <option value="roll">Rolls</option>
+                <option value="can">Cans</option>
+                <option value="tube">Tubes</option>
+              </select>
+            )}
+          </div>
+        </div>
+        <div className="two fields">
+          <div className="field">
+            <label>Available On</label>
+            <input
+              type="date"
+              name="available_date"
+              value={available_date}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="field">
+            <label>Claim By</label>
+            <input
+              type="date"
+              name="claim_by_date"
+              value={claim_by_date}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+        </div>
         <input className="ui button" type="submit" />
+        <button className="ui button" onClick={(e) => handleClick(e)}>
+          Cancel
+        </button>
       </form>
     </div>
   )

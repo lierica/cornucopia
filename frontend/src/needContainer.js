@@ -18,14 +18,13 @@ const NeedContainer = (props) => {
           : props.formRender === false ? "Your Needs" : null}
       </h1>
       {props.userCategory === "charity" && props.formRender === false ? (
-        <button onClick={() => handleClick()}>Create Need</button>
+        <button className="ui button" onClick={() => handleClick()}>
+          Create Need
+        </button>
       ) : null}
 
       {props.userCategory === "charity" && props.formRender === true ? (
-        <div>
-          <button onClick={() => handleClick()}>Cancel</button>
-          <NeedForm />
-        </div>
+        <NeedForm />
       ) : null}
 
       {props.userCategory === "charity" && props.formRender === false ? (
