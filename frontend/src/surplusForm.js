@@ -110,7 +110,7 @@ const SurplusForm = (props) => {
           onChange={(e) => handleChange(e)}
         />
         <br />
-        <input type="submit" />
+        <input className="ui button" type="submit" />
       </form>
     </div>
   )

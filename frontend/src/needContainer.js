@@ -4,7 +4,7 @@ import { toggleNeedFormRender } from "./actions/needFormRender"
 import NeedForm from "./needForm"
 import UserNeed from "./userNeed"
 import NeedIndex from "./needIndex"
-import SearchBar from "./searchBar"
+import SearchBar from "./searchbar"
 
 const NeedContainer = (props) => {
   const handleClick = () => {

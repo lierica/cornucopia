@@ -8,8 +8,8 @@ const SideBar = (props) => {
   }
 
   return (
-    <div className="ui grid">
-      <div className="four wide column">
+    <div className="three wide column">
+      <div className="ui vertical fluid tabular menu">
         <h3 id="Dashboard" onClick={(e) => handleClick(e)}>
           Dashboard
         </h3>

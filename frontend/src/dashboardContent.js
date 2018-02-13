@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 
 const DashboardContent = (props) => {
   return (
-    <div className="twelve wide column">
+    <div className="thirteen wide column">
       <h1>{`Welcome, ${props.user.first_name} ${props.user.last_name}`}</h1>
       <h1>
         {props.userCategory === "charity"

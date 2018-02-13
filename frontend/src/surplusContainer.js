@@ -4,7 +4,7 @@ import { toggleSurplusFormRender } from "./actions/surplusFormRender"
 import SurplusForm from "./surplusForm"
 import UserSurplus from "./userSurplus"
 import SurplusIndex from "./surplusIndex"
-import SearchBar from "./searchBar"
+import SearchBar from "./searchbar"
 
 const SurplusContainer = (props) => {
   const handleClick = () => {
@@ -18,11 +18,15 @@ const SurplusContainer = (props) => {
           : "Explore Surpluses"}
       </h1>
       {props.userCategory === "corporation" && props.formRender === false ? (
-        <button onClick={() => handleClick()}>Create Surplus</button>
+        <button className="ui button" onClick={() => handleClick()}>
+          Create Surplus
+        </button>
       ) : null}
       {props.userCategory === "corporation" && props.formRender === true ? (
         <div>
-          <button onClick={() => handleClick()}>Cancel</button>
+          <button className="ui button" onClick={() => handleClick()}>
+            Cancel
+          </button>
           <SurplusForm />
         </div>
       ) : null}
