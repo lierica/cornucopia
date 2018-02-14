@@ -20,7 +20,6 @@ const SurplusIndex = (props) => {
     <table className="ui striped table">
       <tbody>
         <tr>
-          <th />
           <th>
             <h4>Title</h4>
           </th>
@@ -42,7 +41,6 @@ const SurplusIndex = (props) => {
         {searchedSurpluses.map((surplus) => {
           return (
             <tr key={surplus.id}>
-              <td>placeholder</td>
               <td>{surplus.title}</td>
               <td>{surplus.category}</td>
               <td>{surplus.location}</td>

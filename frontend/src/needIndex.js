@@ -20,7 +20,6 @@ const NeedIndex = (props) => {
     <table className="ui striped table">
       <tbody>
         <tr>
-          <th />
           <th>
             <h4>Title</h4>
           </th>
@@ -39,7 +38,6 @@ const NeedIndex = (props) => {
         {searchedNeeds.map((need) => {
           return (
             <tr key={need.id}>
-              <td>placeholder</td>
               <td>{need.title}</td>
               <td>{need.category}</td>
               <td>{need.location}</td>
