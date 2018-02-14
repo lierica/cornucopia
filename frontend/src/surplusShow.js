@@ -46,7 +46,7 @@ const SurplusShow = (props) => {
   }
 
   return (
-    <div className="thirteen wide column">
+    <div className="twelve wide column">
       {props.userCategory === "corporation" ? (
         <div>
           <h1>{currentUserSurplus.title}</h1>
@@ -98,7 +98,7 @@ const SurplusShow = (props) => {
       ) : null}
 
       {props.userCategory === "charity" ? (
-        <div className="thirteen wide column">
+        <div className="twelve wide column">
           <h1>{currentSurplus.title}</h1>
           <h3>{currentSurplus.description}</h3>
           <h3>{currentSurplus.category}</h3>

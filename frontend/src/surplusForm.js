@@ -1,7 +1,7 @@
 import React from "react"
 import { updateSurplusFormData } from "./actions/surplusFormData"
 import { createSurplus } from "./actions/surpluses"
-import { toggleSurplusFormRender } from "./actions/surplusFormRender"
+import { changeView } from "./actions/loginView"
 import { connect } from "react-redux"
 import "./style/createUpdateForm.css"
 
@@ -19,11 +19,11 @@ const SurplusForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.createSurplus(props.surplusFormData)
-    props.toggleSurplusFormRender()
+    props.changeView("Surpluses")
   }
 
   const handleClick = (e) => {
-    props.toggleSurplusFormRender()
+    props.changeView("Surpluses")
   }
 
   const {
@@ -153,7 +153,11 @@ const SurplusForm = (props) => {
           </div>
         </div>
         <input className="ui button" type="submit" />
-        <button className="ui button" onClick={(e) => handleClick(e)}>
+        <button
+          type="button"
+          className="ui button"
+          onClick={(e) => handleClick(e)}
+        >
           Cancel
         </button>
       </form>
@@ -170,5 +174,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   updateSurplusFormData,
   createSurplus,
-  toggleSurplusFormRender
+  changeView
 })(SurplusForm)

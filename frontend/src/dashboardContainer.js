@@ -7,6 +7,8 @@ import SurplusContainer from "./surplusContainer"
 import DashboardContent from "./dashboardContent"
 import SurplusShow from "./surplusShow"
 import NeedShow from "./needShow"
+import NeedForm from "./needForm"
+import SurplusForm from "./surplusForm"
 import SurplusEditForm from "./surplusEditForm"
 import NeedEditForm from "./needEditForm"
 import withAuth from "./hocs/withAuth"
@@ -43,6 +45,12 @@ class DashboardContainer extends Component {
         break
       case "SurplusEdit":
         view = <SurplusEditForm />
+        break
+      case "SurplusForm":
+        view = <SurplusForm />
+        break
+      case "NeedForm":
+        view = <NeedForm />
         break
       default:
         view = <DashboardContent />

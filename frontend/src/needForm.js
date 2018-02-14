@@ -1,6 +1,6 @@
 import React from "react"
 import { updateNeedFormData } from "./actions/needFormData"
-import { toggleNeedFormRender } from "./actions/needFormRender"
+import { changeView } from "./actions/loginView"
 import { createNeed } from "./actions/needs"
 import { connect } from "react-redux"
 import "./style/createUpdateForm.css"
@@ -19,11 +19,11 @@ const NeedForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.createNeed(props.needFormData)
-    props.toggleNeedFormRender()
+    props.changeView("Needs")
   }
 
   const handleClick = (e) => {
-    props.toggleNeedFormRender()
+    props.changeView("Needs")
   }
 
   const {
@@ -139,7 +139,11 @@ const NeedForm = (props) => {
           />
         </div>
         <input className="ui button" type="submit" />
-        <button className="ui button" onClick={(e) => handleClick(e)}>
+        <button
+          className="ui button"
+          onClick={(e) => handleClick(e)}
+          type="button"
+        >
           Cancel
         </button>
       </form>
@@ -156,5 +160,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   updateNeedFormData,
   createNeed,
-  toggleNeedFormRender
+  changeView
 })(NeedForm)

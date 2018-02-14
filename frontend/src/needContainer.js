@@ -1,45 +1,34 @@
 import React from "react"
 import { connect } from "react-redux"
-import { toggleNeedFormRender } from "./actions/needFormRender"
-import NeedForm from "./needForm"
+import { changeView } from "./actions/loginView"
 import UserNeed from "./userNeed"
 import NeedIndex from "./needIndex"
 import SearchBar from "./searchbar"
 
 const NeedContainer = (props) => {
   const handleClick = () => {
-    props.toggleNeedFormRender()
+    props.changeView("NeedForm")
   }
   return (
-    <div className="thirteen wide column">
-      <h1>
-        {props.userCategory === "corporation"
-          ? "Explore Needs"
-          : props.formRender === false ? "Your Needs" : null}
-      </h1>
-      {props.userCategory === "charity" && props.formRender === false ? (
-        <button className="ui button" onClick={() => handleClick()}>
-          Create Need
-        </button>
-      ) : null}
-
-      {props.userCategory === "charity" && props.formRender === true ? (
-        <NeedForm />
-      ) : null}
-
-      {props.userCategory === "charity" && props.formRender === false ? (
+    <div className="twelve wide column">
+      {props.userCategory === "charity" ? (
         <div>
+          <h1>Your Needs</h1>
+          <button className="ui button" onClick={() => handleClick()}>
+            Create Need
+          </button>
           <SearchBar />
           <UserNeed />
         </div>
-      ) : null}
-
-      {props.userCategory === "corporation" && props.formRender === false ? (
+      ) : (
         <div>
-          <SearchBar />
-          <NeedIndex />
+          <h1>Explore Needs</h1>
+          <div>
+            <SearchBar />
+            <NeedIndex />
+          </div>
         </div>
-      ) : null}
+      )}
     </div>
   )
 }
@@ -50,4 +39,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { toggleNeedFormRender })(NeedContainer)
+export default connect(mapStateToProps, { changeView })(NeedContainer)
