@@ -28,6 +28,8 @@ const SurplusShow = (props) => {
     } else if (action === "more") {
       props.changeNeedShowId(e.target.value)
       props.changeView("NeedShow")
+    } else if (action === "cancel") {
+      props.toggleLikeFormRender()
     }
   }
 
@@ -43,6 +45,7 @@ const SurplusShow = (props) => {
     e.preventDefault()
     props.createUserSurplusNeed(pitchedNeedId, userId, likedSurplusId)
     props.toggleLikeFormRender()
+    props.changeView("Dashboard")
   }
 
   return (
@@ -106,25 +109,40 @@ const SurplusShow = (props) => {
           <h3>{currentSurplus.location}</h3>
           <h3>{currentSurplus.available_date}</h3>
           <h3>{currentSurplus.claim_by_date}</h3>
-          <button
-            className="ui button"
-            id="pitch"
-            onClick={(e) => handleClick(e)}
-          >
-            {props.likeFormRender === false ? "Pitch" : "Cancel"}
-          </button>
+          {props.likeFormRender === false ? (
+            <button
+              className="ui button"
+              id="pitch"
+              onClick={(e) => handleClick(e)}
+            >
+              Pitch
+            </button>
+          ) : null}
+
           {props.likeFormRender === true ? (
-            <form onSubmit={(e) => handleSubmit(e)}>
-              <h3>Select Need to Pitch:</h3>
-              <select onChange={(e) => handleChange(e)}>
-                <option value="">Select</option>
-                {props.userNeeds.map((need) => (
-                  <option key={need.id} value={need.id}>
-                    {need.title}
-                  </option>
-                ))}
-              </select>
-              <input className="ui button" type="submit" className="button" />
+            <form className="ui form" onSubmit={(e) => handleSubmit(e)}>
+              <div className="field">
+                <select
+                  className="ui dropdown"
+                  onChange={(e) => handleChange(e)}
+                >
+                  <option value="">Select Need to Pitch:</option>
+                  {props.userNeeds.map((need) => (
+                    <option key={need.id} value={need.id}>
+                      {need.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <input className="ui button" type="submit" />
+              <button
+                className="ui button"
+                type="button"
+                id="cancel"
+                onClick={(e) => handleClick(e)}
+              >
+                Cancel
+              </button>
             </form>
           ) : null}
         </div>

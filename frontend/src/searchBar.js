@@ -17,7 +17,7 @@ const SearchBar = (props) => {
           onChange={(e) => handleChange(e)}
           id="searchbar"
         />
-        <i class="large search icon" />
+        <i className="large search icon" />
       </div>
     </div>
   )
