@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from "redux"
 import thunk from "redux-thunk"
 import currentUser from "./reducers/currentUser"
-import organizations from "./reducers/organizations"
 import needs from "./reducers/needs"
 import surpluses from "./reducers/surpluses"
 import loginView from "./reducers/loginView"
+import activeSidebarButton from "./reducers/activeSidebarButton"
 import userFormData from "./reducers/userFormData"
 import loginFormData from "./reducers/loginFormData"
 import surplusFormData from "./reducers/surplusFormData"
@@ -19,10 +19,10 @@ import searchTerm from "./reducers/searchTerm"
 
 const reducers = combineReducers({
   currentUser,
-  organizations,
   needs,
   surpluses,
   loginView,
+  activeSidebarButton,
   userFormData,
   loginFormData,
   surplusFormData,

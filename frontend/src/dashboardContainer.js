@@ -7,6 +7,7 @@ import SurplusContainer from "./surplusContainer"
 import DashboardContent from "./dashboardContent"
 import SurplusShow from "./surplusShow"
 import NeedShow from "./needShow"
+import History from "./history"
 import NeedForm from "./needForm"
 import SurplusForm from "./surplusForm"
 import SurplusEditForm from "./surplusEditForm"
@@ -14,11 +15,9 @@ import NeedEditForm from "./needEditForm"
 import withAuth from "./hocs/withAuth"
 import { getNeeds } from "./actions/needs"
 import { getSurpluses } from "./actions/surpluses"
-import { getOrganizations } from "./actions/organizations"
 
 class DashboardContainer extends Component {
   componentDidMount() {
-    this.props.getOrganizations()
     this.props.getNeeds()
     this.props.getSurpluses()
   }
@@ -39,6 +38,9 @@ class DashboardContainer extends Component {
         break
       case "NeedShow":
         view = <NeedShow />
+        break
+      case "History":
+        view = <History />
         break
       case "NeedEdit":
         view = <NeedEditForm />
@@ -78,7 +80,5 @@ const mapStateToProps = (state) => {
 }
 
 export default withAuth(
-  connect(mapStateToProps, { getNeeds, getSurpluses, getOrganizations })(
-    DashboardContainer
-  )
+  connect(mapStateToProps, { getNeeds, getSurpluses })(DashboardContainer)
 )

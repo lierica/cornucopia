@@ -3,11 +3,13 @@ import { withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 import { logoutUser } from "./actions/currentUser"
 import { changeView, resetView } from "./actions/loginView"
+import { resetActiveSidebarButton } from "./actions/activeSidebarButton"
 
 const NavBar = (props) => {
   const handleLogout = () => {
     props.logoutUser()
     props.resetView()
+    props.resetActiveSidebarButton()
     props.history.push("/")
   }
 
@@ -43,5 +45,10 @@ const mapStateToProps = (state) => {
 }
 
 export default withRouter(
-  connect(mapStateToProps, { logoutUser, resetView, changeView })(NavBar)
+  connect(mapStateToProps, {
+    logoutUser,
+    resetView,
+    changeView,
+    resetActiveSidebarButton
+  })(NavBar)
 )

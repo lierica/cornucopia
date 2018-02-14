@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 const DashboardContent = (props) => {
   return (
     <div className="twelve wide column">
-      <h1 style={{ fontFamily: "Nunito, sans-serif" }}>{`Welcome Back, ${
+      <h1 style={{ fontFamily: "Nunito, sans-serif" }}>{`Welcome, ${
         props.user.first_name
       }`}</h1>
       {props.userCategory === "corporation" ? (
