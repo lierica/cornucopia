@@ -42,7 +42,6 @@ const SurplusForm = (props) => {
       <h1>Create a Surplus</h1>
       <form onSubmit={(e) => handleSubmit(e)} className="ui form">
         <div className="field">
-          <label>Title</label>
           <input
             type="text"
             name="title"
@@ -52,7 +51,6 @@ const SurplusForm = (props) => {
           />
         </div>
         <div className="field">
-          <label>Description</label>
           <textarea
             name="description"
             value={description}

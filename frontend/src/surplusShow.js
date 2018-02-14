@@ -106,7 +106,11 @@ const SurplusShow = (props) => {
           <h3>{currentSurplus.location}</h3>
           <h3>{currentSurplus.available_date}</h3>
           <h3>{currentSurplus.claim_by_date}</h3>
-          <button id="pitch" onClick={(e) => handleClick(e)}>
+          <button
+            className="ui button"
+            id="pitch"
+            onClick={(e) => handleClick(e)}
+          >
             {props.likeFormRender === false ? "Pitch" : "Cancel"}
           </button>
           {props.likeFormRender === true ? (
@@ -120,7 +124,7 @@ const SurplusShow = (props) => {
                   </option>
                 ))}
               </select>
-              <input type="submit" className="button" />
+              <input className="ui button" type="submit" className="button" />
             </form>
           ) : null}
         </div>

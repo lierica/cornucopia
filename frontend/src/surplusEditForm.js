@@ -46,10 +46,9 @@ class SurplusEditForm extends Component {
     } = this.props.surplusFormData
     return (
       <div className="column" id="createUpdateForm">
-        <h1>Create a Surplus</h1>
+        <h1>Edit Surplus</h1>
         <form onSubmit={(e) => this.handleSubmit(e)} className="ui form">
           <div className="field">
-            <label>Title</label>
             <input
               type="text"
               name="title"
@@ -59,7 +58,6 @@ class SurplusEditForm extends Component {
             />
           </div>
           <div className="field">
-            <label>Description</label>
             <textarea
               name="description"
               value={description}

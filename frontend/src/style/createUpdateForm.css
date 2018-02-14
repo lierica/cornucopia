@@ -1,3 +1,7 @@
 #createUpdateForm {
   width: 500px;
 }
+
+.ui.textarea {
+  font-family: "Nunito", sans-serif;
+}
