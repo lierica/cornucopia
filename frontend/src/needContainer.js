@@ -29,7 +29,7 @@ const NeedContainer = (props) => {
 
       {props.userCategory === "charity" && props.formRender === false ? (
         <div>
-          <p>Filter</p>
+          <SearchBar />
           <UserNeed />
         </div>
       ) : null}

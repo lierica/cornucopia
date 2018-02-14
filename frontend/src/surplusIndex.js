@@ -17,41 +17,43 @@ const SurplusIndex = (props) => {
   )
 
   return (
-    <table>
+    <table className="ui striped table">
       <tbody>
         <tr>
+          <th />
           <th>
-            <h3>Title</h3>
+            <h4>Title</h4>
           </th>
           <th>
-            <h3>Category</h3>
+            <h4>Category</h4>
           </th>
           <th>
-            <h3>Location</h3>
+            <h4>Location</h4>
           </th>
           <th>
-            <h3>Available On</h3>
+            <h4>Available On</h4>
           </th>
           <th>
-            <h3>Claim By</h3>
+            <h4>Claim By</h4>
           </th>
-          <th>
-            <h3>More</h3>
-          </th>
+          <th />
         </tr>
 
         {searchedSurpluses.map((surplus) => {
           return (
             <tr key={surplus.id}>
+              <td>placeholder</td>
               <td>{surplus.title}</td>
               <td>{surplus.category}</td>
               <td>{surplus.location}</td>
               <td>{surplus.available_date}</td>
               <td>{surplus.claim_by_date}</td>
               <td>
-                <button id={surplus.id} onClick={(e) => handleClick(e)}>
-                  More
-                </button>
+                <i
+                  id={surplus.id}
+                  onClick={(e) => handleClick(e)}
+                  className="angle double right large icon"
+                />
               </td>
             </tr>
           )

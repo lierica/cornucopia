@@ -30,7 +30,7 @@ const SurplusContainer = (props) => {
 
       {props.userCategory === "corporation" && props.formRender === false ? (
         <div>
-          <p>Filter</p>
+          <SearchBar />
           <UserSurplus />
         </div>
       ) : null}

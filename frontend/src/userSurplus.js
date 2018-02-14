@@ -11,26 +11,23 @@ const UserSurplus = (props) => {
   }
 
   return (
-    <table>
+    <table className="ui striped table">
       <tbody>
         <tr>
           <th>
-            <h3>Title</h3>
+            <h4>Title</h4>
           </th>
           <th>
-            <h3>Category</h3>
+            <h4>Category</h4>
           </th>
           <th>
-            <h3>Location</h3>
+            <h4>Location</h4>
           </th>
           <th>
-            <h3>Available On</h3>
+            <h4>Available On</h4>
           </th>
           <th>
-            <h3>Claim By</h3>
-          </th>
-          <th>
-            <h3>Edit</h3>
+            <h4>Claim By</h4>
           </th>
         </tr>
 
@@ -43,9 +40,11 @@ const UserSurplus = (props) => {
               <td>{surplus.available_date}</td>
               <td>{surplus.claim_by_date}</td>
               <td>
-                <button id={surplus.id} onClick={(e) => handleClick(e)}>
-                  Edit
-                </button>
+                <i
+                  id={surplus.id}
+                  onClick={(e) => handleClick(e)}
+                  className="edit large icon"
+                />
               </td>
             </tr>
           )

@@ -7,14 +7,16 @@ const SearchBar = (props) => {
     props.changeSearchTerm(e.target.value)
   }
   return (
-    <div>
-      <form>
-        <input
-          type="text"
-          placeholder="Search title or category"
-          name="search"
-          onChange={(e) => handleChange(e)}
-        />
+    <div className="row">
+      <form className="ui form">
+        <div>
+          <input
+            type="text"
+            placeholder="Search title or category..."
+            name="search"
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
       </form>
     </div>
   )

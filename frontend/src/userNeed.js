@@ -11,23 +11,20 @@ const UserNeed = (props) => {
   }
 
   return (
-    <table>
+    <table className="ui striped table">
       <tbody>
         <tr>
           <th>
-            <h3>Title</h3>
+            <h4>Title</h4>
           </th>
           <th>
-            <h3>Category</h3>
+            <h4>Category</h4>
           </th>
           <th>
-            <h3>Location</h3>
+            <h4>Location</h4>
           </th>
           <th>
-            <h3>Fulfill By</h3>
-          </th>
-          <th>
-            <h3>Edit</h3>
+            <h4>Fulfill By</h4>
           </th>
         </tr>
 
@@ -39,9 +36,11 @@ const UserNeed = (props) => {
               <td>{need.location}</td>
               <td>{need.fulfill_by_date}</td>
               <td>
-                <button onClick={(e) => handleClick(e)} id={need.id}>
-                  Edit
-                </button>
+                <i
+                  id={need.id}
+                  onClick={(e) => handleClick(e)}
+                  className="edit large icon"
+                />
               </td>
             </tr>
           )

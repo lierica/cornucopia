@@ -17,37 +17,39 @@ const NeedIndex = (props) => {
   )
 
   return (
-    <table>
+    <table className="ui striped table">
       <tbody>
         <tr>
+          <th />
           <th>
-            <h3>Title</h3>
+            <h4>Title</h4>
           </th>
           <th>
-            <h3>Category</h3>
+            <h4>Category</h4>
           </th>
           <th>
-            <h3>Location</h3>
+            <h4>Location</h4>
           </th>
           <th>
-            <h3>Fulfill By</h3>
+            <h4>Fulfill By</h4>
           </th>
-          <th>
-            <h3>More</h3>
-          </th>
+          <th />
         </tr>
 
         {searchedNeeds.map((need) => {
           return (
             <tr key={need.id}>
+              <td>placeholder</td>
               <td>{need.title}</td>
               <td>{need.category}</td>
               <td>{need.location}</td>
               <td>{need.fulfill_by_date}</td>
               <td>
-                <button id={need.id} onClick={(e) => handleClick(e)}>
-                  More
-                </button>
+                <i
+                  id={need.id}
+                  onClick={(e) => handleClick(e)}
+                  className="angle double right large icon"
+                />
               </td>
             </tr>
           )
