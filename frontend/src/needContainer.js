@@ -11,7 +11,7 @@ const NeedContainer = (props) => {
     props.toggleNeedFormRender()
   }
   return (
-    <div className="twelve wide column">
+    <div className="thirteen wide column">
       <h1>
         {props.userCategory === "corporation"
           ? "Explore Needs"

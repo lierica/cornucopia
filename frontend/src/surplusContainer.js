@@ -11,7 +11,7 @@ const SurplusContainer = (props) => {
     props.toggleSurplusFormRender()
   }
   return (
-    <div className="twelve wide column">
+    <div className="thirteen wide column">
       <h1>
         {props.userCategory === "corporation"
           ? props.formRender === false ? "Your Surpluses" : null

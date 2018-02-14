@@ -3,6 +3,7 @@ import { changeView } from "./actions/loginView"
 import { updateNeedFormData } from "./actions/needFormData"
 import { updateNeed } from "./actions/needs"
 import { connect } from "react-redux"
+import "./style/createUpdateForm.css"
 
 class NeedEditForm extends Component {
   componentDidMount() {
@@ -22,6 +23,10 @@ class NeedEditForm extends Component {
     this.props.updateNeedFormData(needFormData)
   }
 
+  handleClick = (e) => {
+    this.props.changeView("NeedShow")
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.updateNeed(this.props.needFormData, this.props.needId)
@@ -39,76 +44,111 @@ class NeedEditForm extends Component {
       fulfill_by_date
     } = this.props.needFormData
     return (
-      <div>
-        <h1>Edit Need</h1>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>Title</label>
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <br />
-          <label>Description</label>
-          <textarea
-            name="description"
-            value={description}
-            onChange={(e) => this.handleChange(e)}
-          >
-            Description
-          </textarea>
-          <br />
-          <label>Category</label>
-          <input
-            type="text"
-            name="category"
-            value={category}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <br />
-          <label>Units</label>
-          <input
-            type="number"
-            name="units"
-            value={units}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <label>Unit Category</label>
-          <select
-            name="unit_category"
-            onChange={(e) => this.handleChange(e)}
-            value={unit_category}
-          >
-            <option value="">Select</option>
-            <option value="piece">Piece</option>
-            <option value="bag">Bag</option>
-            <option value="box">Box</option>
-            <option value="pound">Pound</option>
-            <option value="item">Item</option>
-            <option value="bottle">Bottle</option>
-            <option value="roll">Roll</option>
-            <option value="can">Can</option>
-            <option value="tube">Tube</option>
-          </select>
-          <br />
-          <label>Location</label>
-          <input
-            type="text"
-            name="location"
-            value={location}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <br />
-          <label>Available On</label>
-          <input
-            type="date"
-            name="fulfill_by_date"
-            value={fulfill_by_date}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <br />
-          <input type="submit" />
+      <div className="column" id="createUpdateForm">
+        <form onSubmit={(e) => this.handleSubmit(e)} className="ui form">
+          <h1>Create a Need</h1>
+          <div className="field">
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={(e) => this.handleChange(e)}
+              placeholder="Title"
+            />
+          </div>
+          <div className="field">
+            <textarea
+              name="description"
+              value={description}
+              onChange={(e) => this.handleChange(e)}
+              rows="3"
+              placeholder="Description"
+            />
+          </div>
+          <div className="two fields">
+            <div className="field">
+              <input
+                type="text"
+                name="category"
+                value={category}
+                onChange={(e) => this.handleChange(e)}
+                placeholder="Category"
+              />
+            </div>
+            <div className="field">
+              <input
+                type="text"
+                name="location"
+                value={location}
+                onChange={(e) => this.handleChange(e)}
+                placeholder="Location"
+              />
+            </div>
+          </div>
+          <div className="two fields">
+            <div className="field">
+              <input
+                type="number"
+                name="units"
+                value={units}
+                onChange={(e) => this.handleChange(e)}
+                placeholder="Units"
+              />
+            </div>
+            <div className="field">
+              {parseInt(this.props.needFormData.units) === 1 ||
+              this.props.needFormData.units === "" ? (
+                <select
+                  className="ui dropdown"
+                  name="unit_category"
+                  value={unit_category}
+                  onChange={(e) => this.handleChange(e)}
+                >
+                  <option value="">Unit Category</option>
+                  <option value="piece">Piece</option>
+                  <option value="bag">Bag</option>
+                  <option value="box">Box</option>
+                  <option value="pound">Pound</option>
+                  <option value="item">Item</option>
+                  <option value="bottle">Bottle</option>
+                  <option value="roll">Roll</option>
+                  <option value="can">Can</option>
+                  <option value="tube">Tube</option>
+                </select>
+              ) : (
+                <select
+                  className="ui dropdown"
+                  name="unit_category"
+                  value={unit_category}
+                  onChange={(e) => this.handleChange(e)}
+                >
+                  <option value="">Unit Category</option>
+                  <option value="piece">Pieces</option>
+                  <option value="bag">Bags</option>
+                  <option value="box">Boxes</option>
+                  <option value="pound">Pounds</option>
+                  <option value="item">Items</option>
+                  <option value="bottle">Bottles</option>
+                  <option value="roll">Rolls</option>
+                  <option value="can">Cans</option>
+                  <option value="tube">Tubes</option>
+                </select>
+              )}
+            </div>
+          </div>
+          <div className="field">
+            <label>Fulfill By</label>
+            <input
+              type="date"
+              name="fulfill_by_date"
+              value={fulfill_by_date}
+              onChange={(e) => this.handleChange(e)}
+            />
+          </div>
+          <input className="ui button" type="submit" />
+          <button className="ui button" onClick={(e) => this.handleClick(e)}>
+            Cancel
+          </button>
         </form>
       </div>
     )

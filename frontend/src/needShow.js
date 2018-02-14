@@ -20,17 +20,29 @@ const NeedShow = (props) => {
   }
 
   return (
-    <div className="twelve wide column">
+    <div className="thirteen wide column">
       {props.userCategory === "charity" ? (
         <div>
           <h1>{currentNeed.title}</h1>
-          <button id="edit" onClick={(e) => handleClick(e)}>
+          <button
+            id="edit"
+            onClick={(e) => handleClick(e)}
+            className="ui button"
+          >
             Edit
           </button>
-          <button id="delete" onClick={(e) => handleClick(e)}>
+          <button
+            id="delete"
+            onClick={(e) => handleClick(e)}
+            className="ui button"
+          >
             Delete
           </button>
-          <button id="fulfilled" onClick={(e) => handleClick(e)}>
+          <button
+            id="fulfilled"
+            onClick={(e) => handleClick(e)}
+            className="ui button"
+          >
             Fulfilled
           </button>
           <h3>{currentNeed.description}</h3>
@@ -42,7 +54,7 @@ const NeedShow = (props) => {
       ) : null}
 
       {props.userCategory === "corporation" ? (
-        <div className="twelve wide column">
+        <div className="thirteen wide column">
           <h1>{currentNeed.title}</h1>
           <h3>{currentNeed.description}</h3>
           <h3>{currentNeed.category}</h3>

@@ -46,17 +46,29 @@ const SurplusShow = (props) => {
   }
 
   return (
-    <div className="twelve wide column">
+    <div className="thirteen wide column">
       {props.userCategory === "corporation" ? (
         <div>
           <h1>{currentUserSurplus.title}</h1>
-          <button id="edit" onClick={(e) => handleClick(e)}>
+          <button
+            id="edit"
+            onClick={(e) => handleClick(e)}
+            className="ui button"
+          >
             Edit
           </button>
-          <button id="delete" onClick={(e) => handleClick(e)}>
+          <button
+            id="delete"
+            onClick={(e) => handleClick(e)}
+            className="ui button"
+          >
             Delete
           </button>
-          <button id="claimed" onClick={(e) => handleClick(e)}>
+          <button
+            id="claimed"
+            onClick={(e) => handleClick(e)}
+            className="ui button"
+          >
             Claimed
           </button>
           <h3>{currentUserSurplus.description}</h3>
@@ -72,7 +84,12 @@ const SurplusShow = (props) => {
             <ul key={need.id}>
               <li>{`${need.user.first_name} ${need.user.last_name}`}</li>
               <li>{need.organization.name}</li>
-              <button id="more" value={need.id} onClick={(e) => handleClick(e)}>
+              <button
+                id="more"
+                className="ui button"
+                value={need.id}
+                onClick={(e) => handleClick(e)}
+              >
                 See More
               </button>
             </ul>
@@ -81,7 +98,7 @@ const SurplusShow = (props) => {
       ) : null}
 
       {props.userCategory === "charity" ? (
-        <div className="twelve wide column">
+        <div className="thirteen wide column">
           <h1>{currentSurplus.title}</h1>
           <h3>{currentSurplus.description}</h3>
           <h3>{currentSurplus.category}</h3>
@@ -103,7 +120,7 @@ const SurplusShow = (props) => {
                   </option>
                 ))}
               </select>
-              <input type="submit" />
+              <input type="submit" className="button" />
             </form>
           ) : null}
         </div>
