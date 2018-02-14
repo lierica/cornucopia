@@ -13,7 +13,7 @@ const SurplusContainer = (props) => {
     <div className="twelve wide column">
       {props.userCategory === "corporation" ? (
         <div>
-          <h1>Your Surpluses</h1>
+          <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Your Surpluses</h1>
           <button className="ui button" onClick={() => handleClick()}>
             Create Surplus
           </button>
@@ -22,7 +22,9 @@ const SurplusContainer = (props) => {
         </div>
       ) : (
         <div>
-          <h1>Explore Surpluses</h1>
+          <h1 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Explore Surpluses
+          </h1>
           <div>
             <SearchBar />
             <SurplusIndex />

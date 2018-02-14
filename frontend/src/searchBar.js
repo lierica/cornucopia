@@ -1,23 +1,24 @@
 import React from "react"
 import { connect } from "react-redux"
 import { changeSearchTerm } from "./actions/searchTerm"
+import "./style/searchbar.css"
 
 const SearchBar = (props) => {
   const handleChange = (e) => {
     props.changeSearchTerm(e.target.value)
   }
   return (
-    <div className="row">
-      <form className="ui form">
-        <div>
-          <input
-            type="text"
-            placeholder="Search title or category..."
-            name="search"
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-      </form>
+    <div className="ui fluid search" id="searchbar">
+      <div className="ui icon input">
+        <input
+          type="text"
+          placeholder="Search title or category..."
+          name="search"
+          onChange={(e) => handleChange(e)}
+          id="searchbar"
+        />
+        <i class="large search icon" />
+      </div>
     </div>
   )
 }

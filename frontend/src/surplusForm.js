@@ -39,7 +39,7 @@ const SurplusForm = (props) => {
 
   return (
     <div className="column" id="createUpdateForm">
-      <h1>Create a Surplus</h1>
+      <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Create Surplus</h1>
       <form onSubmit={(e) => handleSubmit(e)} className="ui form">
         <div className="field">
           <input

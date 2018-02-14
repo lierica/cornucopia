@@ -46,7 +46,7 @@ class SurplusEditForm extends Component {
     } = this.props.surplusFormData
     return (
       <div className="column" id="createUpdateForm">
-        <h1>Edit Surplus</h1>
+        <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Edit Surplus</h1>
         <form onSubmit={(e) => this.handleSubmit(e)} className="ui form">
           <div className="field">
             <input

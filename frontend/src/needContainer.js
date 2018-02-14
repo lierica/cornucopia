@@ -13,7 +13,7 @@ const NeedContainer = (props) => {
     <div className="twelve wide column">
       {props.userCategory === "charity" ? (
         <div>
-          <h1>Your Needs</h1>
+          <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Your Needs</h1>
           <button className="ui button" onClick={() => handleClick()}>
             Create Need
           </button>
@@ -22,7 +22,7 @@ const NeedContainer = (props) => {
         </div>
       ) : (
         <div>
-          <h1>Explore Needs</h1>
+          <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Explore Needs</h1>
           <div>
             <SearchBar />
             <NeedIndex />

@@ -46,7 +46,7 @@ class NeedEditForm extends Component {
     return (
       <div className="column" id="createUpdateForm">
         <form onSubmit={(e) => this.handleSubmit(e)} className="ui form">
-          <h1>Edit a Need</h1>
+          <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Edit Need</h1>
           <div className="field">
             <input
               type="text"

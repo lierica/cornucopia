@@ -39,7 +39,7 @@ const NeedForm = (props) => {
   return (
     <div className="column" id="createUpdateForm">
       <form onSubmit={(e) => handleSubmit(e)} className="ui form">
-        <h1>Create a Need</h1>
+        <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Create Need</h1>
         <div className="field">
           <input
             type="text"
