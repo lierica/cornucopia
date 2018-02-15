@@ -22,7 +22,6 @@ const SurplusShow = (props) => {
     } else if (action === "delete") {
       props.deleteSurplus(props.surplusId)
       props.changeView("Surpluses")
-    } else if (action === "claimed") {
     } else if (action === "pitch") {
       props.toggleLikeFormRender()
     } else if (action === "more") {
@@ -48,11 +47,52 @@ const SurplusShow = (props) => {
     props.changeView("Dashboard")
   }
 
+  const pluralize =
+    props.userCategory === "corporation"
+      ? currentUserSurplus.units > 1 ? true : false
+      : currentSurplus.units > 1 ? true : false
+
+  const pluralizeObj = {
+    unit: "Units",
+    piece: "Pieces",
+    bag: "Bags",
+    box: "Boxes",
+    pound: "Pounds",
+    item: "Items",
+    bottle: "Bottles",
+    roll: "Rolls",
+    can: "Cans",
+    tube: "Tubes"
+  }
+
   return (
     <div className="twelve wide column">
       {props.userCategory === "corporation" ? (
         <div>
-          <h1>{currentUserSurplus.title}</h1>
+          <h1 style={{ fontFamily: "Nunito, sans-serif" }}>
+            {currentUserSurplus.title}
+          </h1>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            {currentUserSurplus.description}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Category: {currentUserSurplus.category}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Amount: {currentUserSurplus.units}{" "}
+            {pluralize
+              ? pluralizeObj[currentUserSurplus.unit_category]
+              : currentUserSurplus.unit_category}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Location: {currentUserSurplus.location}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Available On: {currentUserSurplus.available_date}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Claim By:{currentUserSurplus.claim_by_date}
+          </h3>
           <button
             id="edit"
             onClick={(e) => handleClick(e)}
@@ -67,48 +107,61 @@ const SurplusShow = (props) => {
           >
             Delete
           </button>
-          <button
-            id="claimed"
-            onClick={(e) => handleClick(e)}
-            className="ui button"
-          >
-            Claimed
-          </button>
-          <h3>{currentUserSurplus.description}</h3>
-          <h3>{currentUserSurplus.category}</h3>
-          <h3>{`${currentUserSurplus.units} ${
-            currentUserSurplus.unit_category
-          }`}</h3>
-          <h3>{currentUserSurplus.location}</h3>
-          <h3>{currentUserSurplus.available_date}</h3>
-          <h3>{currentUserSurplus.claim_by_date}</h3>
-          <h3>Shortlisted By:</h3>
+          <div className="ui divider" />
+          <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Pitches</h1>
           {currentUserSurplus.pitched_needs.map((need) => (
-            <ul key={need.id}>
-              <li>{`${need.user.first_name} ${need.user.last_name}`}</li>
-              <li>{need.organization.name}</li>
-              <button
-                id="more"
-                className="ui button"
-                value={need.id}
-                onClick={(e) => handleClick(e)}
-              >
-                See More
-              </button>
-            </ul>
+            <div key={need.id}>
+              <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+                {need.organization.name}
+              </h3>
+              <ul>
+                <li style={{ fontFamily: "Nunito, sans-serif" }}>{`${
+                  need.user.first_name
+                } ${need.user.last_name}`}</li>
+                <li style={{ fontFamily: "Nunito, sans-serif" }}>
+                  {need.user.role}
+                </li>
+                <button
+                  id="more"
+                  className="ui button"
+                  value={need.id}
+                  onClick={(e) => handleClick(e)}
+                >
+                  View Need
+                </button>
+              </ul>
+            </div>
           ))}
         </div>
       ) : null}
 
       {props.userCategory === "charity" ? (
         <div className="twelve wide column">
-          <h1>{currentSurplus.title}</h1>
-          <h3>{currentSurplus.description}</h3>
-          <h3>{currentSurplus.category}</h3>
-          <h3>{`${currentSurplus.units} ${currentSurplus.unit_category}`}</h3>
-          <h3>{currentSurplus.location}</h3>
-          <h3>{currentSurplus.available_date}</h3>
-          <h3>{currentSurplus.claim_by_date}</h3>
+          <h1 style={{ fontFamily: "Nunito, sans-serif" }}>
+            {currentSurplus.title}
+          </h1>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            {currentSurplus.description}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Category: {currentSurplus.category}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Amount: {currentSurplus.units}{" "}
+            {pluralize
+              ? pluralizeObj[currentSurplus.unit_category]
+              : currentSurplus.unit_category}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Location: {currentSurplus.location}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            {" "}
+            Available On: {currentSurplus.available_date}
+          </h3>
+          <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
+            Claim By: {currentSurplus.claim_by_date}
+          </h3>
           {props.likeFormRender === false ? (
             <button
               className="ui button"
