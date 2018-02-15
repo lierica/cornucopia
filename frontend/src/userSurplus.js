@@ -10,6 +10,12 @@ const UserSurplus = (props) => {
     props.changeView("SurplusShow")
   }
 
+  const searchedUserSurpluses = props.userSurpluses.filter(
+    (surplus) =>
+      surplus.category.toLowerCase().includes(props.searchTerm) ||
+      surplus.title.toLowerCase().includes(props.searchTerm)
+  )
+
   return (
     <table className="ui striped table">
       <tbody>
@@ -31,7 +37,7 @@ const UserSurplus = (props) => {
           </th>
         </tr>
 
-        {props.userSurpluses.map((surplus) => {
+        {searchedUserSurpluses.map((surplus) => {
           return (
             <tr key={surplus.id}>
               <td>{surplus.title}</td>
@@ -56,7 +62,8 @@ const UserSurplus = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    userSurpluses: state.currentUser.profile.surpluses
+    userSurpluses: state.currentUser.profile.surpluses,
+    searchTerm: state.searchTerm
   }
 }
 

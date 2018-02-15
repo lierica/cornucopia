@@ -15,6 +15,7 @@ const NeedIndex = (props) => {
       need.category.toLowerCase().includes(props.searchTerm) ||
       need.title.toLowerCase().includes(props.searchTerm)
   )
+  console.log(props)
 
   return (
     <table className="ui striped table">

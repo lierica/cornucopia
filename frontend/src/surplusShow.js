@@ -1,7 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
 import { deleteSurplus } from "./actions/surpluses"
-import { toggleLikeFormRender } from "./actions/likeFormRender"
 import { changeView } from "./actions/loginView"
 import { changePitchedNeedId } from "./actions/pitchedNeedId"
 import { createUserSurplusNeed } from "./actions/needs"
@@ -27,8 +26,6 @@ const SurplusShow = (props) => {
     } else if (action === "more") {
       props.changeNeedShowId(e.target.value)
       props.changeView("NeedShow")
-    } else if (action === "cancel") {
-      props.toggleLikeFormRender()
     }
   }
 
@@ -43,8 +40,7 @@ const SurplusShow = (props) => {
     let likedSurplusId = props.surplusId
     e.preventDefault()
     props.createUserSurplusNeed(pitchedNeedId, userId, likedSurplusId)
-    props.toggleLikeFormRender()
-    props.changeView("Dashboard")
+    props.changeView("Needs")
   }
 
   const pluralize =
@@ -156,48 +152,26 @@ const SurplusShow = (props) => {
             Location: {currentSurplus.location}
           </h3>
           <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
-            {" "}
             Available On: {currentSurplus.available_date}
           </h3>
           <h3 style={{ fontFamily: "Nunito, sans-serif" }}>
             Claim By: {currentSurplus.claim_by_date}
           </h3>
-          {props.likeFormRender === false ? (
-            <button
-              className="ui button"
-              id="pitch"
-              onClick={(e) => handleClick(e)}
-            >
-              Pitch
-            </button>
-          ) : null}
-
-          {props.likeFormRender === true ? (
-            <form className="ui form" onSubmit={(e) => handleSubmit(e)}>
-              <div className="field">
-                <select
-                  className="ui dropdown"
-                  onChange={(e) => handleChange(e)}
-                >
-                  <option value="">Select Need to Pitch:</option>
-                  {props.userNeeds.map((need) => (
-                    <option key={need.id} value={need.id}>
-                      {need.title}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <input className="ui button" type="submit" />
-              <button
-                className="ui button"
-                type="button"
-                id="cancel"
-                onClick={(e) => handleClick(e)}
-              >
-                Cancel
-              </button>
-            </form>
-          ) : null}
+          <div className="ui divider" />
+          <h1 style={{ fontFamily: "Nunito, sans-serif" }}>Pitch A Need</h1>
+          <form className="ui form" onSubmit={(e) => handleSubmit(e)}>
+            <div className="field">
+              <select className="ui dropdown" onChange={(e) => handleChange(e)}>
+                <option value="">Select Need to Pitch:</option>
+                {props.userNeeds.map((need) => (
+                  <option key={need.id} value={need.id}>
+                    {need.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <input className="ui button" type="submit" />
+          </form>
         </div>
       ) : null}
     </div>
@@ -220,7 +194,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   deleteSurplus,
   changeView,
-  toggleLikeFormRender,
   changePitchedNeedId,
   createUserSurplusNeed,
   changeNeedShowId

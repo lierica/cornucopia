@@ -10,6 +10,12 @@ const UserNeed = (props) => {
     props.changeNeedShowId(needShowId)
   }
 
+  const searchedUserNeeds = props.userNeeds.filter(
+    (need) =>
+      need.category.toLowerCase().includes(props.searchTerm) ||
+      need.title.toLowerCase().includes(props.searchTerm)
+  )
+
   return (
     <table className="ui striped table">
       <tbody>
@@ -28,7 +34,7 @@ const UserNeed = (props) => {
           </th>
         </tr>
 
-        {props.userNeeds.map((need) => {
+        {searchedUserNeeds.map((need) => {
           return (
             <tr key={need.id}>
               <td>{need.title}</td>
@@ -52,7 +58,8 @@ const UserNeed = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    userNeeds: state.currentUser.profile.needs
+    userNeeds: state.currentUser.profile.needs,
+    searchTerm: state.searchTerm
   }
 }
 
