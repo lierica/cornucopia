@@ -1,5 +1,8 @@
 import React from "react"
-import { updateSurplusFormData } from "./actions/surplusFormData"
+import {
+  updateSurplusFormData,
+  resetSurplusFormData
+} from "./actions/surplusFormData"
 import { createSurplus } from "./actions/surpluses"
 import { changeView } from "./actions/loginView"
 import { connect } from "react-redux"
@@ -20,6 +23,7 @@ const SurplusForm = (props) => {
     e.preventDefault()
     props.createSurplus(props.surplusFormData)
     props.changeView("Surpluses")
+    props.resetSurplusFormData()
   }
 
   const handleClick = (e) => {
@@ -172,5 +176,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   updateSurplusFormData,
   createSurplus,
-  changeView
+  changeView,
+  resetSurplusFormData
 })(SurplusForm)

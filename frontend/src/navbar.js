@@ -4,12 +4,14 @@ import { connect } from "react-redux"
 import { logoutUser } from "./actions/currentUser"
 import { changeView, resetView } from "./actions/loginView"
 import { resetActiveSidebarButton } from "./actions/activeSidebarButton"
+import { resetSurplusFormData } from "./actions/surplusFormData"
 
 const NavBar = (props) => {
   const handleLogout = () => {
     props.logoutUser()
     props.resetView()
     props.resetActiveSidebarButton()
+    props.resetSurplusFormData()
     props.history.push("/")
   }
 
@@ -49,6 +51,7 @@ export default withRouter(
     logoutUser,
     resetView,
     changeView,
-    resetActiveSidebarButton
+    resetActiveSidebarButton,
+    resetSurplusFormData
   })(NavBar)
 )

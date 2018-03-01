@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { changeView } from "./actions/loginView"
 import { changeSurplusShowId } from "./actions/surplusShowId"
 import { changeNeedShowId } from "./actions/needShowId"
+import { changeActiveSidebarButton } from "./actions/activeSidebarButton"
 
 const DashboardContent = (props) => {
   let reviewSurpluses = props.user.surpluses.filter(
@@ -18,6 +19,7 @@ const DashboardContent = (props) => {
     const surplusShowId = e.target.id
     props.changeView("SurplusShow")
     props.changeSurplusShowId(surplusShowId)
+    props.changeActiveSidebarButton("Surpluses")
   }
 
   return (
@@ -113,5 +115,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   changeView,
   changeSurplusShowId,
-  changeNeedShowId
+  changeNeedShowId,
+  changeActiveSidebarButton
 })(DashboardContent)

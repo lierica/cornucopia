@@ -15,6 +15,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case "UPDATE_SURPLUS_FORM_DATA":
       return action.surplusFormData
+    case "RESET_SURPLUS_FORM_DATA":
+      return initialState
     default:
       return state
   }

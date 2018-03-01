@@ -162,7 +162,7 @@ const SurplusShow = (props) => {
           <form className="ui form" onSubmit={(e) => handleSubmit(e)}>
             <div className="field">
               <select className="ui dropdown" onChange={(e) => handleChange(e)}>
-                <option value="">Select Need to Pitch:</option>
+                <option value="">Select</option>
                 {props.userNeeds.map((need) => (
                   <option key={need.id} value={need.id}>
                     {need.title}

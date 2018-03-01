@@ -4,3 +4,9 @@ export const updateSurplusFormData = (surplusFormData) => {
     surplusFormData
   }
 }
+
+export const resetSurplusFormData = () => {
+  return {
+    type: "RESET_SURPLUS_FORM_DATA"
+  }
+}
